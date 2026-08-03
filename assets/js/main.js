@@ -137,6 +137,26 @@ if (prefersReduced || !("IntersectionObserver" in window)) {
 }
 
 /* -----------------------------------------------------------------------------
+   App-demo videos — play only while on screen, and never under reduced motion.
+   Until you add assets/video/*.mp4, the poster image shows in its place.
+   -------------------------------------------------------------------------- */
+const demoVideos = document.querySelectorAll("video[data-autoplay]");
+if (!prefersReduced && "IntersectionObserver" in window) {
+  const videoObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      const v = entry.target;
+      if (entry.isIntersecting) {
+        const play = v.play();
+        if (play && play.catch) play.catch(function () { /* autoplay blocked — poster stays */ });
+      } else {
+        v.pause();
+      }
+    });
+  }, { threshold: 0.35 });
+  demoVideos.forEach(function (v) { videoObserver.observe(v); });
+}
+
+/* -----------------------------------------------------------------------------
    FAQ accordion
    -------------------------------------------------------------------------- */
 document.querySelectorAll(".faq__item").forEach(function (item) {

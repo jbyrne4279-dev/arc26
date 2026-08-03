@@ -41,6 +41,15 @@ const CONFIG = {
 | `assets/js/main.js` | Config, pixel loaders, reveal animations, FAQ, sticky mobile CTA |
 | `assets/img/` | Logo, favicon, and the social-share image (`og-image.png`) |
 
+## App demo videos (the iPhone mockups)
+
+Each feature section holds an iPhone with a looping `<video>`. Until you add the
+clips, a branded **poster frame** (`assets/img/posters/*.png`) shows in its place,
+so the site looks complete right now. Drop your screen recordings into
+`assets/video/` — see [`assets/video/README.md`](assets/video/README.md) for the
+exact filenames and export settings. Videos autoplay muted, loop, play only while
+on screen, and are skipped entirely under Reduce Motion.
+
 ## The conversion funnel
 
 1. **Hero** — the ad promise, restated. App Store CTA above the fold + a live-looking app screen.
