@@ -48,17 +48,17 @@
     <text x="72" y="54" fill="#0A1229" font-family="-apple-system, Inter, Arial, sans-serif" font-size="26" font-weight="700" letter-spacing="-0.5">App Store</text>
   </g>
 
-  <!-- rank swatches, right side -->
-  <g transform="translate(940, 150)" font-family="-apple-system, Inter, Arial, sans-serif">
-    <rect x="-40" y="-40" width="240" height="360" rx="26" fill="#172447" fill-opacity="0.85"/>
-    <text x="0" y="0" fill="#C7F2FF" font-size="13" font-weight="700" letter-spacing="1.5">THE LADDER</text>
-    <g font-size="20" font-weight="600" fill="#FFFFFF">
-      <circle cx="8" cy="42" r="8" fill="#59BDF7"/><text x="30" y="49">Champion</text>
-      <circle cx="8" cy="86" r="8" fill="#FCC71F"/><text x="30" y="93">Grandmaster</text>
-      <circle cx="8" cy="130" r="8" fill="#FA4742"/><text x="30" y="137">Master</text>
-      <circle cx="8" cy="174" r="8" fill="#8F5CEB"/><text x="30" y="181">Obsidian</text>
-      <circle cx="8" cy="218" r="8" fill="#CCE6FF"/><text x="30" y="225">Diamond</text>
-      <circle cx="8" cy="262" r="8" fill="#F5B01C"/><text x="30" y="269">Gold</text>
+  <!-- feature list, right side -->
+  <g transform="translate(918, 150)" font-family="-apple-system, Inter, Arial, sans-serif">
+    <rect x="-40" y="-40" width="262" height="360" rx="26" fill="#172447" fill-opacity="0.85"/>
+    <text x="0" y="0" fill="#C7F2FF" font-size="13" font-weight="700" letter-spacing="1.5">WHAT'S INSIDE</text>
+    <g font-size="19" font-weight="600" fill="#FFFFFF">
+      <text x="0" y="49">🔒  App lock you can't</text>
+      <text x="34" y="76">scroll past</text>
+      <text x="0" y="120">📸  Live photo proof</text>
+      <text x="0" y="164">🧠  Six mind games</text>
+      <text x="0" y="208">🎁  Daily reward crates</text>
+      <text x="0" y="252">🏆  A ten-rank ladder</text>
     </g>
   </g>
 </svg>

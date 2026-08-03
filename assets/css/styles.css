@@ -476,22 +476,108 @@ p { margin: 0; }
 .step p { color: var(--text-2); font-size: 15px; }
 
 /* ---------------------------------------------------------------------------
-   10. The ladder
+   9b. Marquee feature showcases (big alternating rows with a phone mockup)
    ------------------------------------------------------------------------- */
-.ladder { margin-top: 52px; display: flex; flex-direction: column; gap: 10px; }
-.rung {
-  display: flex; align-items: center; gap: 16px;
-  background: var(--card); border-radius: 16px;
-  padding: 14px 18px; border: 1px solid var(--hairline-soft);
+.showcase__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 56px;
+  margin-top: 84px;
 }
-.rung__swatch { width: 14px; height: 14px; border-radius: 5px; flex: none; box-shadow: 0 0 14px currentColor; }
-.rung__name { color: #fff; font-weight: 600; font-size: 16px; min-width: 120px; }
-.rung__bar { flex: 1; height: 6px; border-radius: 999px; background: rgba(255,255,255,0.06); overflow: hidden; }
-.rung__fill { height: 100%; border-radius: 999px; background: currentColor; }
-.rung__elo { color: var(--text-3); font-size: 13px; font-variant-numeric: tabular-nums; min-width: 78px; text-align: right; }
-@media (max-width: 560px) {
-  .rung__name { min-width: 92px; font-size: 14px; }
-  .rung__bar { display: none; }
+.showcase__row:first-child { margin-top: 56px; }
+.showcase__row--rev .showcase__media { order: 2; }
+.showcase__copy .eyebrow { margin-bottom: 10px; }
+.showcase__copy h3 { font-size: clamp(24px, 3vw, 32px); letter-spacing: -0.02em; }
+.showcase__copy p { color: var(--text-2); font-size: 17px; margin-top: 14px; max-width: 460px; }
+.showcase__list { list-style: none; padding: 0; margin: 22px 0 0; display: flex; flex-direction: column; gap: 12px; }
+.showcase__list li { display: flex; align-items: flex-start; gap: 12px; color: var(--text-body); font-size: 15px; }
+.showcase__list .chk {
+  width: 22px; height: 22px; border-radius: 50%; flex: none; margin-top: 1px;
+  background: rgba(89,224,140,0.15); display: grid; place-items: center;
+}
+.showcase__list .chk svg { width: 12px; height: 12px; fill: var(--success); }
+.showcase__media { display: flex; justify-content: center; }
+.showcase .device { width: 268px; }
+
+@media (max-width: 860px) {
+  .showcase__row, .showcase__row--rev { grid-template-columns: 1fr; gap: 34px; text-align: center; }
+  .showcase__row--rev .showcase__media { order: 0; }
+  .showcase__copy p, .showcase__list { margin-left: auto; margin-right: auto; }
+  .showcase__list li { text-align: left; }
+}
+
+/* --- Mockup: block screen --- */
+.device__screen.bs {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 30px 22px; gap: 4px;
+  background: linear-gradient(180deg, #0A1229 0%, #05070f 100%);
+}
+.bs__emoji { font-size: 46px; line-height: 1; margin-bottom: 12px; }
+.bs__title { font-size: 26px; font-weight: 800; color: #fff; letter-spacing: -0.02em; }
+.bs__body { font-size: 14px; color: var(--text-3); margin-top: 8px; max-width: 200px; }
+.bs__btn {
+  margin-top: 26px; background: #fff; color: #0A1229; font-weight: 700; font-size: 15px;
+  padding: 13px 30px; border-radius: 14px;
+}
+
+/* --- Mockup: coach chat --- */
+.device__screen.chat { padding: 40px 14px 16px; display: flex; flex-direction: column; }
+.chat__hd {
+  text-align: center; font-size: 11px; font-weight: 700; letter-spacing: 1.2px;
+  text-transform: uppercase; color: var(--frost); padding-bottom: 14px;
+}
+.chat__bubble {
+  max-width: 84%; padding: 11px 14px; border-radius: 16px; font-size: 13px; line-height: 1.4;
+  margin-bottom: 9px;
+}
+.chat__bubble--coach { background: var(--card); color: #fff; border-bottom-left-radius: 5px; align-self: flex-start; }
+.chat__bubble--me { background: var(--glow); color: #fff; border-bottom-right-radius: 5px; align-self: flex-end; }
+.chat__verdict {
+  margin-top: auto; background: rgba(89,224,140,0.12); border: 1px solid rgba(89,224,140,0.35);
+  border-radius: 14px; padding: 12px; font-size: 12px; color: var(--success); text-align: center; font-weight: 600;
+}
+
+/* --- Mockup: mind games grid --- */
+.device__screen.games { padding: 44px 16px 18px; }
+.games__hd { font-size: 22px; font-weight: 800; color: #fff; letter-spacing: -0.02em; padding: 0 4px 4px; }
+.games__sub { font-size: 12px; color: var(--text-3); padding: 0 4px 16px; }
+.gamegrid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.gametile {
+  background: var(--card); border-radius: 16px; padding: 14px 12px;
+  display: flex; flex-direction: column; gap: 8px; min-height: 76px;
+}
+.gametile .gt-ico { font-size: 20px; }
+.gametile .gt-name { font-size: 12px; font-weight: 700; color: #fff; }
+.gametile .gt-mark { font-size: 10px; color: var(--frost); font-weight: 600; }
+.games__note {
+  margin-top: 12px; text-align: center; font-size: 11px; color: var(--success);
+  background: rgba(89,224,140,0.1); border-radius: 12px; padding: 9px;
+}
+
+/* ---------------------------------------------------------------------------
+   10. The ladder — compact strip (one feature among many, not the headline)
+   ------------------------------------------------------------------------- */
+.ladder-strip {
+  margin-top: 44px;
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
+}
+.rank-chip {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--card); border: 1px solid var(--hairline-soft);
+  border-radius: 999px; padding: 9px 16px 9px 12px;
+}
+.rank-chip .swatch { width: 11px; height: 11px; border-radius: 50%; flex: none; box-shadow: 0 0 12px currentColor; }
+.rank-chip .rk { color: #fff; font-size: 14px; font-weight: 600; }
+.rank-chip .el { color: var(--text-3); font-size: 12px; font-variant-numeric: tabular-nums; }
+.ladder-track {
+  margin: 30px auto 0; max-width: 720px; height: 8px; border-radius: 999px;
+  background: linear-gradient(90deg,#F2AD7D,#BAC2C9,#F5B01C,#29E3E8,#36ED7D,#CCE6FF,#8F5CEB,#FA4742,#FCC71F,#59BDF7);
+  opacity: 0.9;
+}
+.ladder-ends {
+  max-width: 720px; margin: 10px auto 0; display: flex; justify-content: space-between;
+  color: var(--text-3); font-size: 12px; letter-spacing: 0.5px;
 }
 
 /* ---------------------------------------------------------------------------
