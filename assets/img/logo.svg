@@ -1,0 +1,21 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Winter Arc 26">
+  <defs>
+    <linearGradient id="wa-frost" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#C7F2FF"/>
+      <stop offset="1" stop-color="#408CFA"/>
+    </linearGradient>
+  </defs>
+  <g stroke="url(#wa-frost)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round">
+    <!-- six-point snowflake -->
+    <path d="M32 6 V58"/>
+    <path d="M9.5 19 L54.5 45"/>
+    <path d="M54.5 19 L9.5 45"/>
+    <!-- barbs -->
+    <path d="M32 15 L26 21 M32 15 L38 21"/>
+    <path d="M32 49 L26 43 M32 49 L38 43"/>
+    <path d="M15 22 L15.5 30 L23 30"/>
+    <path d="M49 22 L48.5 30 L41 30"/>
+    <path d="M15 42 L15.5 34 L23 34"/>
+    <path d="M49 42 L48.5 34 L41 34"/>
+  </g>
+</svg>
