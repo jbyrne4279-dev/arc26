@@ -84,16 +84,17 @@
           </div>
         </div>
 
-        <!-- iPhone with app demo video. Drop assets/video/home.mp4 to replace the poster. -->
-        <div class="phone reveal">
+        <!-- iPhone previewing the quiz funnel. Drop assets/video/quiz.mp4 (a screen
+             recording of the quiz) to replace the poster. -->
+        <a class="phone reveal" href="start.html" data-cta="hero-phone" aria-label="Start the quiz">
           <div class="phone__notch"></div>
           <div class="phone__screen">
-            <img class="phone__poster" src="assets/img/posters/home.png" alt="Winter Arc 26 home screen showing daily tasks, ELO and the lock button" />
+            <img class="phone__poster" src="assets/img/posters/quiz.png" alt="The Winter Arc quiz — Which area needs the most attention?" />
             <video class="phone__video" muted loop playsinline preload="none" data-autoplay>
-              <source src="assets/video/home.mp4" type="video/mp4" />
+              <source src="assets/video/quiz.mp4" type="video/mp4" />
             </video>
           </div>
-        </div>
+        </a>
       </div>
     </section>
 
@@ -494,10 +495,10 @@
   <!-- ===================================================================== -->
   <div class="mobile-cta" id="mobileCta" aria-hidden="true">
     <div class="mobile-cta__text">
-      <span class="a">Winter Arc 26</span>
-      <span class="b">Prove it. Climb the ladder.</span>
+      <span class="a">Build your plan</span>
+      <span class="b">60-second quiz · free</span>
     </div>
-    <a class="btn btn--primary" data-appstore data-cta="sticky">Download</a>
+    <a class="btn btn--primary" href="start.html" data-cta="sticky-quiz">Start →</a>
   </div>
 
   <script src="assets/js/main.js" defer></script>

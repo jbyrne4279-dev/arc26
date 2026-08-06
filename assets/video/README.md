@@ -8,7 +8,8 @@ its place — so the site looks finished either way.
 
 | File | Fills the iPhone in… | Suggested clip |
 |---|---|---|
-| `home.mp4`  | Hero            | Home tab — tasks, ELO, the lock button |
+| `quiz.mp4`  | Hero            | A screen recording of the quiz funnel (the hero previews the quiz) |
+| `home.mp4`  | (unused now)    | Home tab — tasks, ELO, the lock button (kept for reuse) |
 | `photo.mp4` | Verified tasks  | Capturing a task photo → "Verified" |
 | `lock.mp4`  | Lock Mode       | Opening a blocked app → the block screen |
 | `coach.mp4` | The exit gate   | The Emergency Coach chat + verdict |

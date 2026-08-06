@@ -86,6 +86,9 @@ img, svg { max-width: 100%; display: block; }
 a { color: var(--glow); text-decoration: none; transition: color var(--dur) var(--ease); }
 a:hover { color: var(--frost); }
 
+/* Kill the grey tap-flash on touch devices */
+a, button, .opt, .tile, .task-tile, .plan-opt { -webkit-tap-highlight-color: transparent; }
+
 h1, h2, h3, h4 {
   color: var(--text);
   line-height: 1.08;
@@ -117,6 +120,7 @@ p { margin: 0; }
 .section {
   position: relative;
   padding: 96px 0;
+  scroll-margin-top: 84px; /* anchor links clear the fixed nav */
 }
 .section--tight { padding: 64px 0; }
 
@@ -144,7 +148,7 @@ p { margin: 0; }
 
 /* Typography roles from the design system's scale, scaled up for desktop */
 .h-hero {
-  font-size: clamp(40px, 7vw, 60px);
+  font-size: clamp(36px, 8vw, 60px);
   font-weight: 800;
   line-height: 1.02;
 }
@@ -519,7 +523,7 @@ p { margin: 0; }
 /* Reusable iPhone with a looping app-demo video (poster shows until the mp4 loads) */
 .phone {
   position: relative;
-  width: 284px;
+  width: min(284px, 80vw);
   margin: 0 auto;
   border-radius: 46px;
   padding: 11px;
@@ -548,8 +552,8 @@ p { margin: 0; }
    so the poster shows through when assets/video/*.mp4 is absent. */
 .phone__poster { z-index: 0; }
 .phone__video  { z-index: 1; background: transparent; }
-.showcase .phone { width: 278px; }
-.hero .phone { width: 300px; }
+.showcase .phone { width: min(278px, 74vw); }
+.hero .phone { width: min(300px, 82vw); }
 
 @media (max-width: 860px) {
   .showcase__row, .showcase__row--rev { grid-template-columns: 1fr; gap: 34px; text-align: center; }
@@ -767,6 +771,33 @@ p { margin: 0; }
 @media (max-width: 720px) {
   .mobile-cta { display: flex; }
   body { padding-bottom: 84px; }
+}
+
+/* ---------------------------------------------------------------------------
+   16b. Mobile optimisations (primary surface — traffic lands from social)
+   ------------------------------------------------------------------------- */
+@media (max-width: 560px) {
+  /* Tighter hero: less dead space up top, headline higher on the fold */
+  .hero { padding-top: 100px; padding-bottom: 44px; }
+  .hero .lede { font-size: 17px; }
+
+  /* Full-width, stacked CTAs convert better than mismatched centred pills */
+  .hero__cta { flex-direction: column; align-items: stretch; width: 100%; gap: 12px; }
+  .hero__cta .btn { width: 100%; }
+  .hero__proof { font-size: 13px; justify-content: center; text-align: center; }
+
+  .finale__panel { padding: 52px 22px; }
+  .finale .btn--lg { width: 100%; }
+
+  /* Give thumbs room: comfortable option/tap targets in lists and FAQ */
+  .faq__q { font-size: 17px; padding-right: 36px; }
+  .rung__name { font-size: 14px; }
+
+  /* Section rhythm a touch tighter on small screens */
+  .section { padding: 60px 0; }
+  .feature-grid, .steps, .quotes { margin-top: 40px; }
+  .showcase__row { margin-top: 60px; }
+  .showcase__row:first-child { margin-top: 40px; }
 }
 
 /* ---------------------------------------------------------------------------
