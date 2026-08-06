@@ -530,12 +530,6 @@ p { margin: 0; }
   background: linear-gradient(160deg, #202b45 0%, #0b1124 100%);
   box-shadow: 0 30px 80px rgba(0,0,0,0.6), inset 0 0 0 1px rgba(255,255,255,0.06);
 }
-.phone::after {
-  /* soft brand halo behind the device */
-  content: ""; position: absolute; inset: -14%;
-  z-index: -1; border-radius: 50%;
-  background: radial-gradient(circle, rgba(64,140,250,0.28) 0%, rgba(64,140,250,0) 62%);
-}
 .phone__notch {
   position: absolute; top: 19px; left: 50%; transform: translateX(-50%);
   width: 104px; height: 25px; background: #05070f; border-radius: 999px; z-index: 3;
