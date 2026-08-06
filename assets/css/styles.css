@@ -669,18 +669,29 @@ p { margin: 0; }
    12b. UGC video wall (creator clips) — horizontal snap scroller, vertical cards
    ------------------------------------------------------------------------- */
 .ugc { overflow: hidden; }
-.ugc__scroll {
-  display: flex; gap: 16px; margin-top: 44px;
-  overflow-x: auto; scroll-snap-type: x mandatory;
-  padding: 6px 0 22px;
-  -webkit-overflow-scrolling: touch; scrollbar-width: none;
+/* Infinite auto-scrolling marquee. The track holds the cards twice (JS clones
+   the set); translating it -50% loops seamlessly. Edges fade via a mask. */
+.ugc__viewport {
+  position: relative; margin-top: 44px; overflow: hidden; padding: 6px 0 22px;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
 }
-.ugc__scroll::-webkit-scrollbar { display: none; }
-.ugc__scroll::before, .ugc__scroll::after { content: ""; flex: 0 0 max(20px, calc((100% - 1100px) / 2)); }
+.ugc__track {
+  display: flex; width: max-content;
+  animation: ugc-marquee 60s linear infinite;
+}
+@keyframes ugc-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.ugc__viewport:hover .ugc__track,
+.ugc__viewport.paused .ugc__track { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) {
+  .ugc__track { animation: none; }
+  .ugc__viewport { overflow-x: auto; scrollbar-width: none; }
+  .ugc__viewport::-webkit-scrollbar { display: none; }
+}
 
 .ugc-card {
   flex: 0 0 auto; width: 236px; aspect-ratio: 9 / 16; position: relative;
-  border-radius: 22px; overflow: hidden; scroll-snap-align: center; cursor: pointer;
+  margin-right: 16px; border-radius: 22px; overflow: hidden; cursor: pointer;
   background: linear-gradient(160deg, #1b2a52 0%, #0A1229 100%);
   border: 1px solid var(--hairline-soft);
   transition: transform var(--dur) var(--ease);

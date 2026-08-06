@@ -160,13 +160,30 @@ if (!prefersReduced && "IntersectionObserver" in window) {
    UGC video wall — tap a card to play + unmute; tapping another pauses the rest.
    With no mp4 present the poster/placeholder simply stays.
    -------------------------------------------------------------------------- */
+const ugcTrack = document.getElementById("ugcTrack");
+const ugcViewport = document.getElementById("ugcViewport");
+if (ugcTrack && !prefersReduced) {
+  // Duplicate the set so the -50% marquee loops seamlessly
+  const originals = Array.prototype.slice.call(ugcTrack.children);
+  originals.forEach(function (node) {
+    const clone = node.cloneNode(true);
+    clone.setAttribute("aria-hidden", "true");
+    clone.tabIndex = -1;
+    ugcTrack.appendChild(clone);
+  });
+  // Pace the loop to content length so speed feels constant regardless of count
+  ugcTrack.style.animationDuration = (originals.length * 6) + "s";
+}
+
 const ugcCards = document.querySelectorAll(".ugc-card");
 ugcCards.forEach(function (card) {
   const v = card.querySelector("video");
   if (!v) return;
   card.addEventListener("click", function () {
     if (card.classList.contains("playing")) {
-      v.pause(); card.classList.remove("playing"); return;
+      v.pause(); card.classList.remove("playing");
+      if (ugcViewport) ugcViewport.classList.remove("paused");
+      return;
     }
     // pause any other playing card
     ugcCards.forEach(function (other) {
@@ -175,11 +192,11 @@ ugcCards.forEach(function (card) {
     v.muted = false;
     const p = v.play();
     if (p && p.then) {
-      p.then(function () { card.classList.add("playing"); })
+      p.then(function () { card.classList.add("playing"); if (ugcViewport) ugcViewport.classList.add("paused"); })
        .catch(function () { /* no source / blocked — leave the placeholder */ });
     }
   });
-  v.addEventListener("ended", function () { card.classList.remove("playing"); });
+  v.addEventListener("ended", function () { card.classList.remove("playing"); if (ugcViewport) ugcViewport.classList.remove("paused"); });
 });
 
 /* -----------------------------------------------------------------------------

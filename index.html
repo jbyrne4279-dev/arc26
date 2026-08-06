@@ -117,7 +117,8 @@
         • Replace the @handles and captions below with the real creators'.
         Tapping a card plays/unmutes it (see main.js). Handles/captions here are placeholders.
       -->
-      <div class="ugc__scroll reveal">
+      <div class="ugc__viewport reveal" id="ugcViewport">
+       <div class="ugc__track" id="ugcTrack">
         <button class="ugc-card" aria-label="Creator video (placeholder)">
           <video class="ugc-video" muted loop playsinline preload="none" poster="assets/img/ugc/ugc-1.jpg"><source src="assets/video/ugc-1.mp4" type="video/mp4"></video>
           <span class="ugc-scrim"></span><span class="ugc-badge">0:18</span>
@@ -166,6 +167,7 @@
           <span class="ugc-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
           <span class="ugc-meta"><span class="h"><span class="av">8</span><span class="hn">@creator_08</span></span><span class="cap">Beat my best streak.</span></span>
         </button>
+       </div>
       </div>
 
       <div class="wrap"><p class="ugc-hint reveal">Placeholder clips — drop real creator videos into <code>assets/video/</code>.</p></div>
