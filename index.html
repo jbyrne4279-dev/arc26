@@ -68,7 +68,7 @@
           </p>
 
           <div class="hero__cta">
-            <a class="btn btn--primary btn--lg" href="start.html" data-cta="hero-quiz">Start your Winter Arc →</a>
+            <a class="btn btn--primary btn--lg" href="start.html" data-open-quiz data-cta="hero-quiz">Start your Winter Arc →</a>
             <a class="btn btn--ghost" data-appstore data-cta="hero">Download on the App Store</a>
           </div>
 
@@ -86,7 +86,7 @@
         </div>
 
         <!-- Live quiz preview (not a phone mockup) — links into the funnel -->
-        <a class="hero-quiz reveal" href="start.html" data-cta="hero-quiz-card" aria-label="Start the quiz">
+        <a class="hero-quiz reveal" href="start.html" data-open-quiz data-cta="hero-quiz-card" aria-label="Start the quiz">
           <div class="hero-quiz__top">
             <div class="progress"><div class="progress__fill" style="width:24%"></div></div>
             <span class="hero-quiz__tag">60-sec quiz</span>
@@ -528,7 +528,7 @@
             <span class="grad">Climb the ladder.</span>
           </h2>
           <p class="lede copy-block">Answer a few questions and we'll build your plan in 60 seconds.</p>
-          <a class="btn btn--primary btn--lg" href="start.html" data-cta="finale-quiz" style="margin-top:30px;">Start your Winter Arc →</a>
+          <a class="btn btn--primary btn--lg" href="start.html" data-open-quiz data-cta="finale-quiz" style="margin-top:30px;">Start your Winter Arc →</a>
           <p class="finale__note"><a data-appstore data-cta="finale" style="color:var(--text-3);text-decoration:underline;">or download on the App Store</a></p>
         </div>
       </div>
@@ -583,9 +583,34 @@
       <span class="a">Build your plan</span>
       <span class="b">60-second quiz · free</span>
     </div>
-    <a class="btn btn--primary" href="start.html" data-cta="sticky-quiz">Start →</a>
+    <a class="btn btn--primary" href="start.html" data-open-quiz data-cta="sticky-quiz">Start →</a>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- INLINE QUIZ OVERLAY (opens on the home page; start.html is the fallback) -->
+  <!-- ===================================================================== -->
+  <div class="quiz-overlay" id="quizOverlay" aria-hidden="true">
+    <div class="quiz-shell">
+      <div class="quiz-top">
+        <button class="quiz-back" id="quizBack" aria-label="Back">
+          <svg viewBox="0 0 24 24"><path d="M15.4 7.4 14 6l-6 6 6 6 1.4-1.4-4.6-4.6z"/></svg>
+        </button>
+        <div class="progress"><div class="progress__fill" id="progressFill"></div></div>
+        <button class="quiz-close" id="quizClose" aria-label="Close quiz">&times;</button>
+      </div>
+      <div class="quiz-stage">
+        <div id="quizStep" class="quiz-step"></div>
+      </div>
+    </div>
+    <div class="quiz-cta" id="quizCtaBar">
+      <div class="quiz-cta__inner">
+        <button class="cta-btn" id="ctaBtn">Next</button>
+        <button class="cta-link" id="ctaLink" hidden></button>
+      </div>
+    </div>
   </div>
 
   <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/quiz.js" defer></script>
 </body>
 </html>

@@ -19,6 +19,29 @@
   background-size: 340px 340px, 300px 300px, 420px 420px, 360px 360px, 380px 380px, 320px 320px, 100% 100%;
 }
 
+/* ---------- Inline overlay (home page) ---------- */
+.quiz-overlay {
+  position: fixed; inset: 0; z-index: 200; display: none; overflow-y: auto;
+  background:
+    radial-gradient(1.4px 1.4px at 20% 30%, rgba(255,255,255,0.18) 50%, transparent 51%),
+    radial-gradient(1.2px 1.2px at 70% 20%, rgba(255,255,255,0.14) 50%, transparent 51%),
+    radial-gradient(1.6px 1.6px at 45% 60%, rgba(199,242,255,0.16) 50%, transparent 51%),
+    radial-gradient(1.2px 1.2px at 85% 70%, rgba(255,255,255,0.12) 50%, transparent 51%),
+    linear-gradient(180deg, #0A1224 0%, #05070F 100%);
+  background-size: 340px 340px, 300px 300px, 420px 420px, 360px 360px, 100% 100%;
+  animation: quizFade 0.28s var(--ease);
+}
+.quiz-overlay.open { display: block; }
+@keyframes quizFade { from { opacity: 0; } to { opacity: 1; } }
+.quiz-close {
+  width: 38px; height: 38px; flex: none; border-radius: 12px;
+  border: 1px solid var(--hairline); background: rgba(255,255,255,0.03);
+  color: var(--text-2); display: grid; place-items: center; cursor: pointer;
+  font-size: 24px; line-height: 1; padding: 0;
+  transition: background var(--dur) var(--ease);
+}
+.quiz-close:hover { background: rgba(255,255,255,0.08); color: #fff; }
+
 /* ---------- Shell ---------- */
 .quiz-shell {
   max-width: 560px;

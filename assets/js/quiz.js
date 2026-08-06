@@ -5,7 +5,12 @@
    pre-filled with the user's plan.
 
    ►► GO-LIVE CONFIG — edit CONFIG below. ◄◄
+
+   Runs two ways: standalone on start.html, or as an inline full-screen overlay
+   on index.html (when a #quizOverlay element is present). Wrapped in an IIFE so
+   it can load alongside main.js on the home page without global collisions.
    ========================================================================== */
+(function () {
 const CONFIG = {
   // App Store link used on the final "download" screen. Keep in sync with main.js.
   APP_STORE_URL: "https://apps.apple.com/app/winter-arc-26/id0000000000",
@@ -139,6 +144,25 @@ const ctaLink = document.getElementById("ctaLink");
 const progressFill = document.getElementById("progressFill");
 const CHECK = '<svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>';
 
+// Inline-overlay mode (home page). Absent on the standalone start.html page.
+const overlay = document.getElementById("quizOverlay");
+const closeBtn = document.getElementById("quizClose");
+const EMBEDDED = !!overlay;
+let opened = false;
+function openQuiz() {
+  if (!EMBEDDED) return;
+  if (!opened) { opened = true; if (state.i >= STEPS.length) state.i = 0; render(); }
+  overlay.classList.add("open");
+  overlay.setAttribute("aria-hidden", "false");
+  document.documentElement.style.overflow = "hidden";
+}
+function closeQuiz() {
+  if (!EMBEDDED) return;
+  overlay.classList.remove("open");
+  overlay.setAttribute("aria-hidden", "true");
+  document.documentElement.style.overflow = "";
+}
+
 function esc(s) { return String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])); }
 function track(ev, data) { try { (window.dataLayer = window.dataLayer || []).push(Object.assign({ event: ev }, data || {})); } catch (e) {} }
 
@@ -173,6 +197,7 @@ function goNext() {
 }
 function goBack() {
   if (state.i > 0) { state.i--; saveState(); render(); }
+  else if (EMBEDDED) closeQuiz();
   else window.location.href = CONFIG.HOME_URL;
 }
 backBtn.onclick = goBack;
@@ -186,7 +211,7 @@ function render() {
   progressFill.style.width = (state.i / (total - 1)) * 100 + "%";
   backBtn.hidden = false; // always allow back (first step returns to site)
   stepEl.classList.remove("quiz-step"); void stepEl.offsetWidth; stepEl.classList.add("quiz-step");
-  window.scrollTo(0, 0);
+  if (overlay) overlay.scrollTo(0, 0); else window.scrollTo(0, 0);
   (HANDLERS[step.type] || HANDLERS.info)(step);
   track("quiz_step_view", { step: step.id, index: state.i });
 }
@@ -661,8 +686,21 @@ HANDLERS.download = function (step) {
 /* ---------------------------------------------------------------------------
    Boot
    ------------------------------------------------------------------------- */
-if (state.i >= STEPS.length) state.i = 0;
-// Dev/QA: jump to a step with #s=<index> (e.g. start.html#s=9). Harmless in prod.
-const _jump = (location.hash || "").match(/s=(\d+)/);
-if (_jump) state.i = Math.min(+_jump[1], STEPS.length - 1);
-render();
+if (EMBEDDED) {
+  // Home-page overlay: don't render until opened; wire the launchers.
+  document.querySelectorAll("[data-open-quiz]").forEach(function (el) {
+    el.addEventListener("click", function (e) { e.preventDefault(); openQuiz(); });
+  });
+  if (closeBtn) closeBtn.addEventListener("click", closeQuiz);
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && overlay.classList.contains("open")) closeQuiz();
+  });
+} else {
+  // Standalone start.html
+  if (state.i >= STEPS.length) state.i = 0;
+  // Dev/QA: jump to a step with #s=<index> (e.g. start.html#s=9). Harmless in prod.
+  const _jump = (location.hash || "").match(/s=(\d+)/);
+  if (_jump) state.i = Math.min(+_jump[1], STEPS.length - 1);
+  render();
+}
+})();
