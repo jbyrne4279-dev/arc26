@@ -1,3 +1,6 @@
 .DS_Store
 .preview-*.png
 node_modules/
+
+# QA / preview artifacts
+.qa/

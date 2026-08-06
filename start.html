@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1" />
+  <meta name="theme-color" content="#05070F" />
+  <title>Start your Winter Arc — Arc26</title>
+  <meta name="description" content="Answer a few questions and we'll build your discipline plan in 60 seconds." />
+  <meta name="robots" content="noindex" />
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="assets/css/quiz.css" />
+</head>
+<body class="quiz-body">
+  <div class="quiz-shell">
+    <div class="quiz-top">
+      <button class="quiz-back" id="quizBack" aria-label="Back">
+        <svg viewBox="0 0 24 24"><path d="M15.4 7.4 14 6l-6 6 6 6 1.4-1.4-4.6-4.6z"/></svg>
+      </button>
+      <div class="progress"><div class="progress__fill" id="progressFill"></div></div>
+    </div>
+
+    <div class="quiz-stage">
+      <div id="quizStep" class="quiz-step"><!-- step renders here --></div>
+    </div>
+  </div>
+
+  <div class="quiz-cta" id="quizCtaBar">
+    <div class="quiz-cta__inner">
+      <button class="cta-btn" id="ctaBtn">Next</button>
+      <button class="cta-link" id="ctaLink" hidden></button>
+    </div>
+  </div>
+
+  <script src="assets/js/quiz.js" defer></script>
+</body>
+</html>

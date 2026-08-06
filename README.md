@@ -50,6 +50,42 @@ so the site looks complete right now. Drop your screen recordings into
 exact filenames and export settings. Videos autoplay muted, loop, play only while
 on screen, and are skipped entirely under Reduce Motion.
 
+## The quiz funnel (`start.html`)
+
+Both hero CTAs and the final CTA route into a full **quiz → account → paywall →
+download** funnel, ported from the in-app onboarding. It's config-driven:
+the entire flow lives in the `STEPS` array at the top of
+[`assets/js/quiz.js`](assets/js/quiz.js) — edit copy/options there, no component
+code to touch. Answers persist to `localStorage`, so the paywall and download
+screen are pre-filled with the user's plan.
+
+**Screens:** diagnostic quiz (tiles, single/multi-select, an hours dial, a
+journey chart, a spin-to-win reward reel, notification priming, username + age,
+the Bronze rank intro, a symptoms checklist, an "analyzing" sequence, and a
+results screen) → routine builder → a **hold-to-lock commitment** → social proof
+→ account (Apple / Google / email) → community recap → **paywall** → photo-verify
+value screen → App Store handoff.
+
+**Go-live config** (top of `assets/js/quiz.js`):
+```js
+const CONFIG = {
+  APP_STORE_URL:        "...",  // final download button (keep in sync with main.js)
+  CHECKOUT_URL_YEARLY:  "",     // Stripe Payment Link — "" previews straight through
+  CHECKOUT_URL_MONTHLY: "",
+  HOME_URL: "index.html"
+};
+```
+
+> **Needs a backend to be real:** the paywall's "Start subscription" opens a
+> checkout URL if you set one (a Stripe Payment Link is the quickest); left blank
+> it just continues to the download screen for previewing. The account step
+> (Apple/Google/email) currently stores the choice locally and advances — wire it
+> to real OAuth / your auth backend where marked in `HANDLERS.account`. Funnel
+> steps fire `dataLayer` events (`quiz_step_view`, `quiz_signup`,
+> `quiz_checkout`, `quiz_download_click`) for analytics.
+
+QA tip: append `#s=<index>` to `start.html` to jump to any step.
+
 ## The conversion funnel
 
 1. **Hero** — the ad promise, restated. App Store CTA above the fold + a live-looking app screen.

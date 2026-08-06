@@ -229,6 +229,7 @@ p { margin: 0; }
 .btn--ghost:hover { color: var(--text); border-color: rgba(255,255,255,0.28); background: rgba(255,255,255,0.03); }
 
 .btn--sm { height: 44px; font-size: 15px; padding: 0 18px; }
+.btn--lg { height: 60px; font-size: 18px; padding: 0 34px; }
 
 /* ---------------------------------------------------------------------------
    5. Nav
