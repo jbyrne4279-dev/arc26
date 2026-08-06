@@ -525,7 +525,7 @@ p { margin: 0; }
   display: block; width: min(400px, 100%); margin: 0 auto; text-decoration: none; color: inherit;
   background: linear-gradient(180deg, rgba(23,36,71,0.92) 0%, rgba(10,18,41,0.96) 100%);
   border: 1px solid var(--hairline); border-radius: 26px; padding: 22px;
-  box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.5); overflow: hidden;
   transition: transform var(--dur) var(--ease), border-color var(--dur) var(--ease);
 }
 .hero-quiz:hover { transform: translateY(-4px); border-color: rgba(255,255,255,0.2); color: inherit; }
@@ -533,7 +533,10 @@ p { margin: 0; }
 .hero-quiz__top .progress { flex: 1; }
 .hero-quiz__tag { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-3); white-space: nowrap; }
 .hero-quiz .q-head { margin: 0 0 6px; }
-.hero-quiz .cta-btn { pointer-events: none; }
+.hero-quiz .cta-btn {
+  pointer-events: none; display: grid; place-items: center;
+  width: 100%; box-sizing: border-box; text-align: center;
+}
 
 /* Reusable iPhone with a looping app-demo video (poster shows until the mp4 loads) */
 .phone {
