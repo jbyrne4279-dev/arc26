@@ -25,6 +25,7 @@
   <link rel="apple-touch-icon" href="assets/img/favicon.svg" />
   <link rel="preconnect" href="https://apps.apple.com" />
   <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="assets/css/quiz.css" />
 </head>
 <body>
 
@@ -84,16 +85,22 @@
           </div>
         </div>
 
-        <!-- iPhone previewing the quiz funnel. Drop assets/video/quiz.mp4 (a screen
-             recording of the quiz) to replace the poster. -->
-        <a class="phone reveal" href="start.html" data-cta="hero-phone" aria-label="Start the quiz">
-          <div class="phone__notch"></div>
-          <div class="phone__screen">
-            <img class="phone__poster" src="assets/img/posters/quiz.png" alt="The Winter Arc quiz — Which area needs the most attention?" />
-            <video class="phone__video" muted loop playsinline preload="none" data-autoplay>
-              <source src="assets/video/quiz.mp4" type="video/mp4" />
-            </video>
+        <!-- Live quiz preview (not a phone mockup) — links into the funnel -->
+        <a class="hero-quiz reveal" href="start.html" data-cta="hero-quiz-card" aria-label="Start the quiz">
+          <div class="hero-quiz__top">
+            <div class="progress"><div class="progress__fill" style="width:24%"></div></div>
+            <span class="hero-quiz__tag">60-sec quiz</span>
           </div>
+          <span class="q-eyebrow">Winter Arc 26</span>
+          <h3 class="q-head" style="font-size:22px">Which area needs the most attention?</h3>
+          <p class="q-sub">Select all that apply.</p>
+          <div class="tiles">
+            <div class="tile"><span class="tile__ring" style="color:#FF736B"><span style="font-size:22px">❤️</span></span><span class="tile__name">Health</span></div>
+            <div class="tile selected"><span class="tile__tick"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span><span class="tile__ring" style="color:#59E08C"><span style="font-size:22px">💸</span></span><span class="tile__name">Money</span></div>
+            <div class="tile"><span class="tile__ring" style="color:#F5B01C"><span style="font-size:22px">🧘</span></span><span class="tile__name">Mindset</span></div>
+            <div class="tile"><span class="tile__ring" style="color:#408CFA"><span style="font-size:20px">•••</span></span><span class="tile__name">Other</span></div>
+          </div>
+          <div class="cta-btn" style="margin-top:18px">Next</div>
         </a>
       </div>
     </section>
@@ -236,11 +243,11 @@
           <div class="showcase__copy reveal">
             <span class="eyebrow">Verified tasks</span>
             <h3>Tasks you prove, not just tick.</h3>
-            <p>Tapping "done" isn't an option. Snap a live photo and it's checked against the task — verified or rejected in seconds.</p>
+            <p>No "mark as done." Snap a live photo — verified in seconds.</p>
             <ul class="showcase__list">
-              <li><span class="chk"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Live capture only — the camera roll is disabled, so old photos won't pass.</li>
-              <li><span class="chk"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Each task is judged against its own accept and reject criteria.</li>
-              <li><span class="chk"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>The photo is used for the check, then discarded — never saved or posted.</li>
+              <li><span class="chk"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Live capture only. No camera roll.</li>
+              <li><span class="chk"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Judged against your task.</li>
+              <li><span class="chk"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Photo's checked, then gone.</li>
             </ul>
           </div>
         </div>
@@ -261,11 +268,11 @@
           <div class="showcase__copy reveal">
             <span class="eyebrow">Lock Mode</span>
             <h3>A lock that holds until the work is done.</h3>
-            <p>Start a session and Screen Time shields the apps you chose. The lock lifts when your tasks are done — not on a timer you can wait out.</p>
+            <p>Screen Time shields your apps until the tasks are done. No timer to wait out.</p>
             <ul class="showcase__list">
-              <li><span class="chk"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Task-bound: finish your tasks to unlock, don't wait out a timer.</li>
-              <li><span class="chk"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Opening a blocked app shows a full-screen block, not the app.</li>
-              <li><span class="chk"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Banked reward minutes buy a short break, then the shield returns on its own.</li>
+              <li><span class="chk"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Task-bound, not timed.</li>
+              <li><span class="chk"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Blocked apps hit a wall.</li>
+              <li><span class="chk"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Earn minutes for breaks.</li>
             </ul>
           </div>
         </div>
@@ -286,11 +293,11 @@
           <div class="showcase__copy reveal">
             <span class="eyebrow">The exit gate</span>
             <h3>Quitting early means making your case.</h3>
-            <p>No one-tap escape. Try to bail and a coach makes you argue it out — the exit only appears after its verdict.</p>
+            <p>Try to bail and a coach argues back. The exit only shows after the verdict.</p>
             <ul class="showcase__list">
-              <li><span class="chk"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Five back-and-forth turns before any exit is shown.</li>
-              <li><span class="chk"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Built to make you argue with yourself, not the app.</li>
-              <li><span class="chk"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>If the network drops, it falls back to a script — you're never locked out by an error.</li>
+              <li><span class="chk"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Five rounds, then an exit.</li>
+              <li><span class="chk"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Made to change your mind.</li>
+              <li><span class="chk"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Real emergencies still pass.</li>
             </ul>
           </div>
         </div>
@@ -311,11 +318,11 @@
           <div class="showcase__copy reveal">
             <span class="eyebrow">Earn time back</span>
             <h3>Win a game, bank fifteen minutes.</h3>
-            <p>Six quick brain games. Win one and bank 15 minutes of screen time to spend while you're locked in.</p>
+            <p>Six quick brain games. Win one, earn screen time to spend locked in.</p>
             <ul class="showcase__list">
-              <li><span class="chk"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Six games, each procedurally generated — nothing to memorise.</li>
-              <li><span class="chk"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>One win a day banks minutes; spend them in 15-minute blocks.</li>
-              <li><span class="chk"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Reward time is capped, so a break stays a break.</li>
+              <li><span class="chk"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Six games, endless variations.</li>
+              <li><span class="chk"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>One win = 15 minutes.</li>
+              <li><span class="chk"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Sharpen focus, not scroll.</li>
             </ul>
           </div>
         </div>
@@ -336,11 +343,11 @@
           <div class="showcase__copy reveal">
             <span class="eyebrow">Daily rewards</span>
             <h3>Three tasks done mints a crate.</h3>
-            <p>Clear three tasks and earn the day's crate. Open it for banked minutes and cosmetics — a reason to finish.</p>
+            <p>Clear three tasks, open the day's crate. Minutes and unlocks inside.</p>
             <ul class="showcase__list">
-              <li><span class="chk"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Earned crates are saved — you can't lose one by closing the app.</li>
-              <li><span class="chk"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Rewards feed back into your minute balance for lock sessions.</li>
-              <li><span class="chk"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>A small, daily reason to get the first three done.</li>
+              <li><span class="chk"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Crates never expire.</li>
+              <li><span class="chk"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Rewards top up your minutes.</li>
+              <li><span class="chk"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>A reason to finish.</li>
             </ul>
           </div>
         </div>
@@ -361,25 +368,25 @@
           <article class="feature reveal">
             <div class="feature__icon"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
             <h3>Streak shields</h3>
-            <p>Hit 30 days and earn a shield. Slip once, it's forgiven — the shield covers the miss instead of breaking your streak.</p>
+            <p>Hit 30 days, earn a shield. Slip once — it's forgiven.</p>
           </article>
 
           <article class="feature reveal">
             <div class="feature__icon"><svg viewBox="0 0 24 24"><path d="M3 18h18"/><path d="M7 18a5 5 0 0110 0"/><path d="M12 6V3M5 10L3.5 8.5M19 10l1.5-1.5"/></svg></div>
             <h3>Morning briefing</h3>
-            <p>Open the app and a briefing grades yesterday and sets up today. It doesn't sugar-coat a bad one.</p>
+            <p>A daily briefing grades yesterday, sets up today. No sugar-coating.</p>
           </article>
 
           <article class="feature reveal">
             <div class="feature__icon"><svg viewBox="0 0 24 24"><path d="M17 20v-2a4 4 0 00-4-4H7a4 4 0 00-4 4v2"/><circle cx="10" cy="8" r="3.2"/><path d="M21 20v-2a4 4 0 00-3-3.85"/></svg></div>
             <h3>Community</h3>
-            <p>Post wins, struggles and questions under your handle. Proof you're not grinding alone.</p>
+            <p>Post wins and struggles under your handle. Never grind alone.</p>
           </article>
 
           <article class="feature reveal">
             <div class="feature__icon"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/><circle cx="19" cy="18" r="2.4"/></svg></div>
             <h3>Custom, flexible tasks</h3>
-            <p>Mix prebuilt tasks with your own, and edit the list anytime. Your arc, your rules.</p>
+            <p>Prebuilt or your own. Edit anytime. Your arc, your rules.</p>
           </article>
         </div>
       </div>
