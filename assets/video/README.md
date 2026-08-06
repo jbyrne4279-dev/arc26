@@ -15,6 +15,7 @@ its place — so the site looks finished either way.
 | `coach.mp4` | The exit gate   | The Emergency Coach chat + verdict |
 | `games.mp4` | Earn time back  | Playing/winning a Mind game |
 | `crate.mp4` | Daily rewards   | Earning and opening a daily crate |
+| `ugc-1.mp4` … `ugc-8.mp4` | Creators section | Vertical creator clips (tap to play). Optional posters: `assets/img/ugc/ugc-1.jpg`… |
 
 ## How to record & export
 

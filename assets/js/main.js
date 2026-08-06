@@ -157,6 +157,32 @@ if (!prefersReduced && "IntersectionObserver" in window) {
 }
 
 /* -----------------------------------------------------------------------------
+   UGC video wall — tap a card to play + unmute; tapping another pauses the rest.
+   With no mp4 present the poster/placeholder simply stays.
+   -------------------------------------------------------------------------- */
+const ugcCards = document.querySelectorAll(".ugc-card");
+ugcCards.forEach(function (card) {
+  const v = card.querySelector("video");
+  if (!v) return;
+  card.addEventListener("click", function () {
+    if (card.classList.contains("playing")) {
+      v.pause(); card.classList.remove("playing"); return;
+    }
+    // pause any other playing card
+    ugcCards.forEach(function (other) {
+      if (other !== card) { const ov = other.querySelector("video"); if (ov) ov.pause(); other.classList.remove("playing"); }
+    });
+    v.muted = false;
+    const p = v.play();
+    if (p && p.then) {
+      p.then(function () { card.classList.add("playing"); })
+       .catch(function () { /* no source / blocked — leave the placeholder */ });
+    }
+  });
+  v.addEventListener("ended", function () { card.classList.remove("playing"); });
+});
+
+/* -----------------------------------------------------------------------------
    FAQ accordion
    -------------------------------------------------------------------------- */
 document.querySelectorAll(".faq__item").forEach(function (item) {

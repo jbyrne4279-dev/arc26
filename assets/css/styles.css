@@ -666,6 +666,62 @@ p { margin: 0; }
 .quote__handle { color: var(--text-3); font-size: 13px; }
 
 /* ---------------------------------------------------------------------------
+   12b. UGC video wall (creator clips) — horizontal snap scroller, vertical cards
+   ------------------------------------------------------------------------- */
+.ugc { overflow: hidden; }
+.ugc__scroll {
+  display: flex; gap: 16px; margin-top: 44px;
+  overflow-x: auto; scroll-snap-type: x mandatory;
+  padding: 6px 0 22px;
+  -webkit-overflow-scrolling: touch; scrollbar-width: none;
+}
+.ugc__scroll::-webkit-scrollbar { display: none; }
+.ugc__scroll::before, .ugc__scroll::after { content: ""; flex: 0 0 max(20px, calc((100% - 1100px) / 2)); }
+
+.ugc-card {
+  flex: 0 0 auto; width: 236px; aspect-ratio: 9 / 16; position: relative;
+  border-radius: 22px; overflow: hidden; scroll-snap-align: center; cursor: pointer;
+  background: linear-gradient(160deg, #1b2a52 0%, #0A1229 100%);
+  border: 1px solid var(--hairline-soft);
+  transition: transform var(--dur) var(--ease);
+}
+.ugc-card:hover { transform: translateY(-4px); }
+.ugc-card:nth-child(3n+2) { background: linear-gradient(160deg, #2a1c4c 0%, #0d0a1f 100%); }
+.ugc-card:nth-child(3n+3) { background: linear-gradient(160deg, #0d3633 0%, #051f1c 100%); }
+.ugc-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; background: transparent; z-index: 0; }
+.ugc-scrim { position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: linear-gradient(180deg, rgba(0,0,0,0.28) 0%, rgba(0,0,0,0) 34%, rgba(0,0,0,0) 55%, rgba(5,7,15,0.85) 100%); }
+.ugc-play {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); z-index: 2;
+  width: 58px; height: 58px; border-radius: 50%;
+  background: rgba(255,255,255,0.16); border: 1px solid rgba(255,255,255,0.35);
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  display: grid; place-items: center; transition: opacity var(--dur) var(--ease), transform 0.15s var(--ease);
+}
+.ugc-play svg { width: 22px; height: 22px; fill: #fff; margin-left: 3px; }
+.ugc-card.playing .ugc-play { opacity: 0; pointer-events: none; }
+.ugc-card:active .ugc-play { transform: translate(-50%,-50%) scale(0.92); }
+.ugc-badge {
+  position: absolute; top: 12px; left: 12px; z-index: 2;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.4px; color: #fff;
+  background: rgba(0,0,0,0.4); border-radius: 999px; padding: 4px 10px;
+  display: inline-flex; align-items: center; gap: 5px;
+}
+.ugc-badge i { width: 6px; height: 6px; border-radius: 50%; background: var(--danger); }
+.ugc-meta { position: absolute; left: 14px; right: 14px; bottom: 14px; z-index: 2; }
+.ugc-meta .h { display: flex; align-items: center; gap: 8px; }
+.ugc-meta .av { width: 26px; height: 26px; border-radius: 50%; flex: none;
+  background: linear-gradient(135deg, #212E52, #408CFA); display: grid; place-items: center;
+  font-size: 12px; font-weight: 700; color: #fff; }
+.ugc-meta .hn { color: #fff; font-weight: 700; font-size: 14px; }
+.ugc-meta .cap { color: rgba(255,255,255,0.75); font-size: 12px; margin-top: 6px; line-height: 1.35; }
+.ugc-hint { text-align: center; color: var(--text-4); font-size: 13px; margin-top: 2px; }
+
+@media (max-width: 560px) {
+  .ugc-card { width: 200px; }
+}
+
+/* ---------------------------------------------------------------------------
    13. FAQ
    ------------------------------------------------------------------------- */
 .faq { margin-top: 44px; max-width: 800px; margin-left: auto; margin-right: auto; }
