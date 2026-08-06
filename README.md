@@ -50,6 +50,16 @@ so the site looks complete right now. Drop your screen recordings into
 exact filenames and export settings. Videos autoplay muted, loop, play only while
 on screen, and are skipped entirely under Reduce Motion.
 
+## Creator program (`become-a-creator.html`)
+
+The Creators section has a **Become a creator** button linking to an application
+form (name, email, platforms/handles, following, niche, sample link, app usage,
+UGC experience). To collect submissions, set `FORM_ENDPOINT` in the inline
+script at the bottom of `become-a-creator.html` to a form backend (a Formspree
+endpoint is the quickest: `https://formspree.io/f/xxxxxx`). Left blank, the form
+validates and shows the success state without sending anywhere — fine for
+previewing. It fires a `creator_application` dataLayer event on submit.
+
 ## The quiz funnel (`start.html`)
 
 Both hero CTAs and the final CTA route into a full **quiz → account → paywall →

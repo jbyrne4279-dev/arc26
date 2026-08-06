@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#050A1F" />
+  <title>Become a creator — Winter Arc 26</title>
+  <meta name="description" content="Apply to create content for Winter Arc 26. Get featured, earn on every signup you drive." />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <header class="nav is-stuck">
+    <div class="wrap nav__inner">
+      <a class="brand" href="index.html" aria-label="Winter Arc 26 home">
+        <img class="brand__mark" src="assets/img/logo.svg" alt="" width="30" height="30" />
+        <span class="brand__name">Winter Arc 26</span>
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a class="navlink" href="index.html#features">Features</a>
+        <a class="navlink" href="index.html#creators">Creators</a>
+        <a class="btn btn--primary btn--sm" href="start.html" data-cta="nav-quiz">Start</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section" style="padding-top:120px;">
+    <div class="wrap">
+      <!-- Intro -->
+      <div class="copy-block center reveal" id="intro">
+        <span class="eyebrow">Creator program</span>
+        <h1 class="h-page">Make content. Get featured. Get paid.</h1>
+        <p class="lede">
+          We work with creators who post about discipline, fitness and self-improvement.
+          Get featured on the site, early access to the app, and a cut of every
+          signup you drive. Tell us about you.
+        </p>
+      </div>
+
+      <!-- Application form -->
+      <form class="appform reveal" id="creatorForm" novalidate>
+        <div class="row2">
+          <div class="ff">
+            <label for="name">Full name <span class="req">*</span></label>
+            <input id="name" name="name" type="text" autocomplete="name" placeholder="Your name" required />
+          </div>
+          <div class="ff">
+            <label for="email">Email <span class="req">*</span></label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="you@email.com" required />
+          </div>
+        </div>
+
+        <div class="ff">
+          <label for="platform">Primary platform <span class="req">*</span></label>
+          <select id="platform" name="primary_platform" required>
+            <option value="" disabled selected>Select one</option>
+            <option>TikTok</option>
+            <option>Instagram</option>
+            <option>YouTube</option>
+            <option>X / Twitter</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="row2">
+          <div class="ff">
+            <label for="ig">Instagram handle</label>
+            <div class="with-at"><span>@</span><input id="ig" name="instagram" type="text" placeholder="handle" autocapitalize="off" /></div>
+          </div>
+          <div class="ff">
+            <label for="tt">TikTok handle</label>
+            <div class="with-at"><span>@</span><input id="tt" name="tiktok" type="text" placeholder="handle" autocapitalize="off" /></div>
+          </div>
+        </div>
+
+        <div class="row2">
+          <div class="ff">
+            <label for="following">Total following <span class="req">*</span></label>
+            <select id="following" name="following" required>
+              <option value="" disabled selected>Select a range</option>
+              <option>Under 1,000</option>
+              <option>1,000 – 10,000</option>
+              <option>10,000 – 50,000</option>
+              <option>50,000 – 250,000</option>
+              <option>250,000 – 1M</option>
+              <option>1M+</option>
+            </select>
+          </div>
+          <div class="ff">
+            <label for="niche">Content niche <span class="req">*</span></label>
+            <select id="niche" name="niche" required>
+              <option value="" disabled selected>Select one</option>
+              <option>Fitness / Gym</option>
+              <option>Discipline / Self-improvement</option>
+              <option>Productivity</option>
+              <option>Men's lifestyle</option>
+              <option>Finance / Business</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="ff">
+          <label for="sample">Link to a recent video <span class="req">*</span></label>
+          <input id="sample" name="sample_link" type="url" placeholder="https://…" required />
+        </div>
+
+        <div class="ff">
+          <label>Do you already use Winter Arc 26? <span class="req">*</span></label>
+          <div class="pills">
+            <label class="pill-opt"><input type="radio" name="uses_app" value="Yes" required /><span>Yes, I use it</span></label>
+            <label class="pill-opt"><input type="radio" name="uses_app" value="Not yet" /><span>Not yet</span></label>
+          </div>
+        </div>
+
+        <div class="ff">
+          <label for="experience">Experience with brand deals or UGC</label>
+          <textarea id="experience" name="experience" placeholder="Briefly — brands you've worked with, or the kind of content you make."></textarea>
+        </div>
+
+        <div class="ff">
+          <label for="notes">Anything else?</label>
+          <textarea id="notes" name="notes" placeholder="Optional — rates, ideas, questions."></textarea>
+        </div>
+
+        <button class="btn btn--primary" type="submit" id="submitBtn">Submit application</button>
+        <p class="form-note">We review every application and reply by email. Usually within a few days.</p>
+      </form>
+
+      <!-- Success state (revealed after submit) -->
+      <div class="form-success" id="formSuccess" hidden>
+        <div class="tick"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></div>
+        <h2>Application received.</h2>
+        <p>Thanks — we've got your details. If you're a fit, we'll reach out by email with next steps and your creator link.</p>
+        <p style="margin-top:22px;"><a href="index.html">← Back to home</a></p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__bottom">
+        <span>© <span id="year">2026</span> Winter Arc 26. All rights reserved.</span>
+        <span><a href="terms.html">Terms</a> · <a href="privacy.html">Privacy</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* =======================================================================
+       Creator application handling.
+       ►► To collect submissions, set FORM_ENDPOINT to a form backend URL
+          (e.g. a Formspree endpoint "https://formspree.io/f/xxxxxx", or your
+          own API). Left blank, the form validates and shows the success state
+          without sending anywhere — fine for previewing.
+       ===================================================================== */
+    var FORM_ENDPOINT = "";
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    var form = document.getElementById("creatorForm");
+    var btn = document.getElementById("submitBtn");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (!form.reportValidity()) return;
+
+      btn.disabled = true; btn.textContent = "Sending…";
+
+      function done() {
+        form.hidden = true;
+        document.getElementById("intro").hidden = true;
+        var ok = document.getElementById("formSuccess");
+        ok.hidden = false;
+        ok.scrollIntoView({ behavior: "smooth", block: "center" });
+        try { (window.dataLayer = window.dataLayer || []).push({ event: "creator_application" }); } catch (e2) {}
+      }
+
+      if (FORM_ENDPOINT) {
+        fetch(FORM_ENDPOINT, { method: "POST", headers: { Accept: "application/json" }, body: new FormData(form) })
+          .then(done)
+          .catch(function () { btn.disabled = false; btn.textContent = "Submit application"; alert("Something went wrong — please try again or email us."); });
+      } else {
+        setTimeout(done, 400); // demo: no backend configured
+      }
+    });
+
+    /* Reveal-on-load (no IntersectionObserver dependency here) */
+    document.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("is-in"); });
+  </script>
+</body>
+</html>

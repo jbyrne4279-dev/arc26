@@ -899,3 +899,56 @@ p { margin: 0; }
 .legal ul { padding-left: 22px; margin: 0 0 14px; }
 .legal li { margin-bottom: 8px; }
 .legal a { text-decoration: underline; }
+
+/* ---------------------------------------------------------------------------
+   20. Creator application form
+   ------------------------------------------------------------------------- */
+.creator-cta { text-align: center; margin-top: 30px; }
+.creator-cta .ugc-hint { margin-top: 14px; }
+
+.appform { max-width: 640px; margin: 34px auto 0; }
+.appform .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 560px) { .appform .row2 { grid-template-columns: 1fr; gap: 0; } }
+.ff { margin-bottom: 18px; }
+.ff > label { display: block; font-size: 14px; color: var(--text-2); margin-bottom: 8px; font-weight: 600; }
+.ff .req { color: var(--glow); }
+.ff input, .ff select, .ff textarea {
+  width: 100%; background: var(--card-deep); border: 1.5px solid var(--hairline);
+  border-radius: 14px; padding: 14px 15px; color: #fff; font-size: 16px; font-family: inherit;
+  transition: border-color 0.2s var(--ease); -webkit-appearance: none; appearance: none;
+}
+.ff input::placeholder, .ff textarea::placeholder { color: var(--text-4); }
+.ff input:focus, .ff select:focus, .ff textarea:focus { outline: none; border-color: var(--glow); }
+.ff textarea { min-height: 108px; resize: vertical; line-height: 1.5; }
+.ff select {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%239fb0c8' viewBox='0 0 24 24'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat; background-position: right 14px center; padding-right: 40px; cursor: pointer;
+}
+.ff .with-at { position: relative; }
+.ff .with-at span { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--text-3); pointer-events: none; }
+.ff .with-at input { padding-left: 32px; }
+
+.pills { display: flex; flex-wrap: wrap; gap: 10px; }
+.pill-opt { position: relative; cursor: pointer; }
+.pill-opt input { position: absolute; opacity: 0; pointer-events: none; }
+.pill-opt span {
+  display: inline-flex; align-items: center; padding: 11px 18px; border-radius: 999px;
+  background: var(--card-muted); border: 1.5px solid var(--hairline); color: var(--text-2);
+  font-size: 15px; font-weight: 600; transition: all 0.2s var(--ease);
+}
+.pill-opt input:checked + span { border-color: var(--frost); background: rgba(64,140,250,0.14); color: #fff; }
+.pill-opt input:focus-visible + span { outline: 2px solid var(--glow); outline-offset: 2px; }
+
+.appform .btn--primary { width: 100%; height: 58px; font-size: 18px; margin-top: 8px; }
+.form-note { text-align: center; color: var(--text-4); font-size: 13px; margin-top: 14px; }
+
+.form-success {
+  text-align: center; max-width: 520px; margin: 0 auto;
+  background: var(--card); border: 1px solid var(--hairline); border-radius: var(--r-panel);
+  padding: 48px 28px;
+}
+.form-success .tick { width: 64px; height: 64px; margin: 0 auto 20px; border-radius: 50%;
+  background: rgba(89,224,140,0.16); border: 2px solid var(--success); display: grid; place-items: center; }
+.form-success .tick svg { width: 30px; height: 30px; fill: var(--success); }
+.form-success h2 { font-size: 26px; margin-bottom: 10px; }
+.form-success p { color: var(--text-2); }
