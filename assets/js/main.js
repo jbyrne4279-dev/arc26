@@ -200,6 +200,45 @@ ugcCards.forEach(function (card) {
 });
 
 /* -----------------------------------------------------------------------------
+   Feature slideshow — one feature at a time, arrows + dots + auto-advance
+   -------------------------------------------------------------------------- */
+(function () {
+  const track = document.getElementById("showcaseTrack");
+  if (!track) return;
+  const slides = Array.prototype.slice.call(track.children).filter(function (el) { return el.classList.contains("showcase__row"); });
+  if (slides.length < 2) return;
+  // slides live off-screen in the track, so force their reveal state on
+  track.querySelectorAll(".reveal").forEach(function (e) { e.classList.add("is-in"); });
+
+  const dotsWrap = document.getElementById("scDots");
+  let i = 0, timer = null;
+  slides.forEach(function (_, k) {
+    const d = document.createElement("button");
+    d.className = "showcase__dot" + (k === 0 ? " active" : "");
+    d.setAttribute("aria-label", "Feature " + (k + 1));
+    d.addEventListener("click", function () { go(k, true); });
+    dotsWrap.appendChild(d);
+  });
+  const dots = Array.prototype.slice.call(dotsWrap.children);
+
+  function go(n, user) {
+    i = (n + slides.length) % slides.length;
+    track.style.transform = "translateX(-" + (i * 100) + "%)";
+    dots.forEach(function (d, k) { d.classList.toggle("active", k === i); });
+    if (user) restart();
+  }
+  document.getElementById("scPrev").addEventListener("click", function () { go(i - 1, true); });
+  document.getElementById("scNext").addEventListener("click", function () { go(i + 1, true); });
+
+  function start() { if (prefersReduced) return; timer = setInterval(function () { go(i + 1); }, 6000); }
+  function restart() { clearInterval(timer); start(); }
+  const vp = track.closest(".showcase__viewport");
+  vp.addEventListener("mouseenter", function () { clearInterval(timer); });
+  vp.addEventListener("mouseleave", start);
+  start();
+})();
+
+/* -----------------------------------------------------------------------------
    FAQ accordion
    -------------------------------------------------------------------------- */
 document.querySelectorAll(".faq__item").forEach(function (item) {

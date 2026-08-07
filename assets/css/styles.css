@@ -538,6 +538,38 @@ p { margin: 0; }
   width: 100%; box-sizing: border-box; text-align: center;
 }
 
+/* Feature bento — a centred phone flanked by feature cards (2 left, 2 right) */
+.bento {
+  display: grid; grid-template-columns: 1fr minmax(240px, 300px) 1fr;
+  gap: 24px; align-items: center; margin-top: 56px;
+}
+.bento__col { display: flex; flex-direction: column; gap: 24px; }
+.bento__phone { justify-self: center; }
+.bento .phone { width: min(280px, 100%); }
+.bento-card {
+  background: linear-gradient(180deg, var(--card) 0%, var(--card-deep) 100%);
+  border: 1px solid var(--hairline-soft); border-radius: 22px; padding: 26px;
+  transition: transform var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.bento-card:hover { transform: translateY(-4px); border-color: var(--hairline); }
+.bento-card__icon {
+  width: 46px; height: 46px; border-radius: 14px; margin-bottom: 18px;
+  background: var(--card-deep); border: 1px solid var(--hairline-soft);
+  display: grid; place-items: center;
+}
+.bento-card__icon svg { width: 22px; height: 22px; stroke: var(--frost); fill: none; stroke-width: 1.8; }
+.bento-card h3 { font-size: 19px; font-weight: 600; margin-bottom: 8px; letter-spacing: -0.01em; }
+.bento-card p { color: var(--text-2); font-size: 15px; line-height: 1.5; }
+
+@media (max-width: 920px) {
+  .bento { grid-template-columns: 1fr 1fr; gap: 18px; }
+  .bento__phone { grid-column: 1 / -1; order: -1; margin-bottom: 6px; }
+  .bento__col { gap: 18px; }
+}
+@media (max-width: 560px) {
+  .bento { grid-template-columns: 1fr; }
+}
+
 /* Reusable iPhone with a looping app-demo video (poster shows until the mp4 loads) */
 .phone {
   position: relative;
