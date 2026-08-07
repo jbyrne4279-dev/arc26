@@ -603,7 +603,17 @@ p { margin: 0; }
   border: 1px solid var(--hairline-soft); border-radius: 22px; padding: 26px;
   transition: transform var(--dur) var(--ease), border-color var(--dur) var(--ease);
 }
+.bento-card { cursor: pointer; }
 .bento-card:hover { transform: translateY(-4px); border-color: var(--hairline); }
+/* Active (lit-up) card in the auto-cycle */
+.bento-card.active {
+  border-color: var(--frost);
+  background: linear-gradient(180deg, var(--card-raised) 0%, var(--card) 100%);
+  box-shadow: 0 0 0 1px rgba(199,242,255,0.35), 0 16px 44px rgba(64,140,250,0.20);
+  transform: translateY(-2px);
+}
+.bento-card.active .bento-card__icon { border-color: rgba(199,242,255,0.5); background: rgba(64,140,250,0.16); }
+.bento__shot { transition: opacity 0.28s var(--ease); }
 .bento-card__icon {
   width: 46px; height: 46px; border-radius: 14px; margin-bottom: 18px;
   background: var(--card-deep); border: 1px solid var(--hairline-soft);

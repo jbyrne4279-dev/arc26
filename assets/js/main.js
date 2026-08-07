@@ -200,7 +200,42 @@ ugcCards.forEach(function (card) {
 });
 
 /* -----------------------------------------------------------------------------
-   Feature slideshow — one feature at a time, arrows + dots + auto-advance
+   Feature bento — cards light up one by one (4s each) and drive the phone
+   -------------------------------------------------------------------------- */
+(function () {
+  const cards = Array.prototype.slice.call(document.querySelectorAll(".bento-card[data-shot]"));
+  const shot = document.getElementById("bentoShot");
+  if (!cards.length || !shot) return;
+
+  let i = 0, timer = null;
+  shot.addEventListener("load", function () { shot.style.opacity = "1"; });
+
+  function activate(n) {
+    i = (n + cards.length) % cards.length;
+    cards.forEach(function (c, k) { c.classList.toggle("active", k === i); });
+    const src = cards[i].getAttribute("data-shot");
+    if (src && shot.getAttribute("src") !== src) {
+      shot.style.opacity = "0";
+      setTimeout(function () { shot.src = src; }, 220);
+    }
+  }
+  function start() { if (prefersReduced) return; clearInterval(timer); timer = setInterval(function () { activate(i + 1); }, 4000); }
+
+  activate(0);
+  start();
+
+  cards.forEach(function (c, k) {
+    c.addEventListener("click", function () { activate(k); start(); });
+  });
+  const bento = cards[0].closest(".bento");
+  if (bento) {
+    bento.addEventListener("mouseenter", function () { clearInterval(timer); });
+    bento.addEventListener("mouseleave", start);
+  }
+})();
+
+/* -----------------------------------------------------------------------------
+   Feature slideshow (legacy — no-op unless a #showcaseTrack exists)
    -------------------------------------------------------------------------- */
 (function () {
   const track = document.getElementById("showcaseTrack");
