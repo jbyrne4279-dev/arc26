@@ -319,7 +319,7 @@ p { margin: 0; }
   letter-spacing: 0.4px;
 }
 .brand:hover { color: var(--text); }
-.brand__mark { width: 30px; height: 30px; }
+.brand__mark { width: 30px; height: 30px; border-radius: 8px; object-fit: cover; }
 .brand__name { font-size: 15px; text-transform: uppercase; letter-spacing: 1.2px; }
 .nav__links { display: flex; align-items: center; gap: 30px; }
 .nav__links a.navlink {

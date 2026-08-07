@@ -1,10 +1,10 @@
 /* =============================================================================
-   Winter Arc 26 — Quiz / onboarding funnel engine
+   Winter Arc 26, Quiz / onboarding funnel engine
    Config-driven: STEPS below is the whole flow. A generic renderer handles each
    step `type`. State persists to localStorage so the paywall/account can be
    pre-filled with the user's plan.
 
-   ►► GO-LIVE CONFIG — edit CONFIG below. ◄◄
+   ►► GO-LIVE CONFIG, edit CONFIG below. ◄◄
 
    Runs two ways: standalone on start.html, or as an inline full-screen overlay
    on index.html (when a #quizOverlay element is present). Wrapped in an IIFE so
@@ -25,7 +25,7 @@ const CONFIG = {
 };
 
 /* ---------------------------------------------------------------------------
-   Content — the entire flow. Edit copy here without touching the renderer.
+   Content, the entire flow. Edit copy here without touching the renderer.
    ------------------------------------------------------------------------- */
 const STEPS = [
   { id: "area", type: "tiles", eyebrow: "Winter Arc 26",
@@ -118,7 +118,7 @@ const STEPS = [
   { id: "paywall", type: "paywall", headline: "Choose your plan", sub: "No commitment. Cancel anytime." },
 
   { id: "verify", type: "verify", headline: "Prove your progress", ctaLabel: "Continue",
-    sub: "Every task is verified with a live photo — so your streak is earned, never claimed." },
+    sub: "Every task is verified with a live photo, so your streak is earned, never claimed." },
 
   { id: "download", type: "download", headline: "You're in. Day 1 starts now." }
 ];
@@ -331,7 +331,7 @@ HANDLERS.inputs = function (step) {
     uh.className = "field__hint checking"; uh.textContent = "Checking…";
     checkT = setTimeout(() => {
       const taken = ["admin", "arc26", "test", "winter", "root"].includes(v);
-      if (taken) { uh.className = "field__hint bad"; uh.textContent = "Taken — try another"; uOk = false; }
+      if (taken) { uh.className = "field__hint bad"; uh.textContent = "Taken, try another"; uOk = false; }
       else { uh.className = "field__hint ok"; uh.textContent = "@" + v + " is available"; uOk = true; }
       validateAll();
     }, 550);
@@ -449,7 +449,7 @@ HANDLERS.reward = function (step) {
 /* ---- notifications priming ---- */
 HANDLERS.notify = function (step) {
   const rows = [
-    ["Winter Arc", "Time to lock in. Your first task is waiting — don't quit now."],
+    ["Winter Arc", "Time to lock in. Your first task is waiting, don't quit now."],
     ["Task alarms", "No snoozing on your transformation."],
     ["Task reminders", "Quiet reminders so nothing slips."],
     ["Daily motivation", "A push when you need it most."]
@@ -485,7 +485,7 @@ HANDLERS.results = function (step) {
       <div class="res-bar"><div class="bar" style="height:82%;background:linear-gradient(180deg,#FF736B,#c23a33)">47%</div><small>Your score</small></div>
       <div class="res-bar"><div class="bar" style="height:24%;background:linear-gradient(180deg,#59E08C,#2f8a55)">12%</div><small>Average</small></div>
     </div>
-    <p class="q-sub" style="margin-bottom:6px">This is normal. Men your age often face extra challenges with self-commitment — and it's fixable.</p>
+    <p class="q-sub" style="margin-bottom:6px">This is normal. Men your age often face extra challenges with self-commitment, and it's fixable.</p>
     <p class="disclaimer">This is only an observation, not a diagnosis. Seek a professional for medical advice.</p>
   </div>`;
   setCTA(step.ctaLabel || "Let's go", { disabled: false });
@@ -595,7 +595,7 @@ HANDLERS.account = function (step) {
      </div>
      <button class="auth-btn email" id="emailBtn">Continue with email</button>`;
   // NOTE: Apple/Google/email here store the choice locally and advance. Real auth
-  // needs a backend or an OAuth provider — wire it where marked.
+  // needs a backend or an OAuth provider, wire it where marked.
   stepEl.querySelectorAll(".auth-btn[data-m]").forEach(b => b.onclick = () => { state.method = b.dataset.m; saveState(); track("quiz_signup", { method: b.dataset.m }); goNext(); });
   const form = document.getElementById("emailForm"), eBtn = document.getElementById("emailBtn");
   eBtn.onclick = () => {
@@ -654,7 +654,7 @@ HANDLERS.paywall = function (step) {
 HANDLERS.verify = function (step) {
   stepEl.innerHTML = `<div class="info-center"><div style="font-size:40px">📸</div>${head(step)}
     <div class="verify-frame"><span class="big">🏋️</span><span class="tick">Task verified</span></div>
-    <div class="recap"><div class="recap-item" style="justify-content:center"><div><b>Live photo only</b><p>Snap proof in the moment — no camera-roll uploads.</p></div></div></div>
+    <div class="recap"><div class="recap-item" style="justify-content:center"><div><b>Live photo only</b><p>Snap proof in the moment, no camera-roll uploads.</p></div></div></div>
   </div>`;
   setCTA(step.ctaLabel || "Continue", { disabled: false });
 };

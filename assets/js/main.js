@@ -1,5 +1,5 @@
 /* =============================================================================
-   Winter Arc 26 — funnel behaviour
+   Winter Arc 26, funnel behaviour
    -----------------------------------------------------------------------------
    ►► EDIT THIS ONE BLOCK to go live. Everything else is wiring. ◄◄
    ========================================================================== */
@@ -8,7 +8,7 @@ const CONFIG = {
         Replace the id with your real Apple app id (numbers only).            */
   APP_STORE_URL: "https://apps.apple.com/app/winter-arc-26/id0000000000",
 
-  /* 2. Meta (Facebook/Instagram) Pixel id — for retargeting IG/TikTok traffic.
+  /* 2. Meta (Facebook/Instagram) Pixel id, for retargeting IG/TikTok traffic.
         Leave "" to disable. Get it from Meta Events Manager.                  */
   META_PIXEL_ID: "",
 
@@ -103,7 +103,7 @@ onScrollNav();
 window.addEventListener("scroll", onScrollNav, { passive: true });
 
 /* -----------------------------------------------------------------------------
-   Sticky mobile download bar — appears after the hero scrolls away
+   Sticky mobile download bar, appears after the hero scrolls away
    -------------------------------------------------------------------------- */
 const mobileCta = document.getElementById("mobileCta");
 const hero = document.querySelector(".hero");
@@ -137,7 +137,7 @@ if (prefersReduced || !("IntersectionObserver" in window)) {
 }
 
 /* -----------------------------------------------------------------------------
-   App-demo videos — play only while on screen, and never under reduced motion.
+   App-demo videos, play only while on screen, and never under reduced motion.
    Until you add assets/video/*.mp4, the poster image shows in its place.
    -------------------------------------------------------------------------- */
 const demoVideos = document.querySelectorAll("video[data-autoplay]");
@@ -147,7 +147,7 @@ if (!prefersReduced && "IntersectionObserver" in window) {
       const v = entry.target;
       if (entry.isIntersecting) {
         const play = v.play();
-        if (play && play.catch) play.catch(function () { /* autoplay blocked — poster stays */ });
+        if (play && play.catch) play.catch(function () { /* autoplay blocked, poster stays */ });
       } else {
         v.pause();
       }
@@ -157,7 +157,7 @@ if (!prefersReduced && "IntersectionObserver" in window) {
 }
 
 /* -----------------------------------------------------------------------------
-   UGC video wall — tap a card to play + unmute; tapping another pauses the rest.
+   UGC video wall, tap a card to play + unmute; tapping another pauses the rest.
    With no mp4 present the poster/placeholder simply stays.
    -------------------------------------------------------------------------- */
 const ugcTrack = document.getElementById("ugcTrack");
@@ -193,14 +193,14 @@ ugcCards.forEach(function (card) {
     const p = v.play();
     if (p && p.then) {
       p.then(function () { card.classList.add("playing"); if (ugcViewport) ugcViewport.classList.add("paused"); })
-       .catch(function () { /* no source / blocked — leave the placeholder */ });
+       .catch(function () { /* no source / blocked, leave the placeholder */ });
     }
   });
   v.addEventListener("ended", function () { card.classList.remove("playing"); if (ugcViewport) ugcViewport.classList.remove("paused"); });
 });
 
 /* -----------------------------------------------------------------------------
-   Feature bento — cards light up one by one (4s each) and drive the phone
+   Feature bento, cards light up one by one (4s each) and drive the phone
    -------------------------------------------------------------------------- */
 (function () {
   const cards = Array.prototype.slice.call(document.querySelectorAll(".bento-card[data-shot]"));
@@ -235,7 +235,7 @@ ugcCards.forEach(function (card) {
 })();
 
 /* -----------------------------------------------------------------------------
-   Feature slideshow (legacy — no-op unless a #showcaseTrack exists)
+   Feature slideshow (legacy, no-op unless a #showcaseTrack exists)
    -------------------------------------------------------------------------- */
 (function () {
   const track = document.getElementById("showcaseTrack");
