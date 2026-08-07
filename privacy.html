@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#050A1F" />
   <title>Privacy Policy — Winter Arc 26</title>
-  <meta name="description" content="How Winter Arc 26 handles your data." />
+  <meta name="description" content="How Winter Arc 26 handles your data. We don't sell data, run ads, or use third-party tracking." />
   <meta name="robots" content="index, follow" />
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="assets/css/styles.css" />
@@ -20,7 +20,7 @@
       <nav class="nav__links" aria-label="Primary">
         <a class="navlink" href="index.html#features">Features</a>
         <a class="navlink" href="index.html#faq">FAQ</a>
-        <a class="btn btn--primary btn--sm" data-appstore data-cta="nav">Download</a>
+        <a class="btn btn--primary btn--sm" href="start.html" data-cta="nav-quiz">Start</a>
       </nav>
     </div>
   </header>
@@ -28,101 +28,115 @@
   <main class="legal section">
     <div class="wrap">
       <div class="prose">
-        <!-- TEMPLATE NOTICE: This is a starting-point policy generated from the app's
-             described data flows. Have it reviewed by a qualified professional and
-             fill in every [BRACKETED] value before publishing. -->
         <h1>Privacy Policy</h1>
-        <p class="updated">Last updated: 3 August 2026</p>
+        <p class="updated">Last updated: 07/08/2026</p>
 
-        <p>This policy explains what Winter Arc 26 (“the app”, “we”, “us”), operated by
-        [YOUR COMPANY / LEGAL ENTITY], collects, why, and what you can do about it. By
-        using the app you agree to the practices described here.</p>
+        <p>Winter Arc 26 (“the app”) is operated by incognito labs limited. We are the data controller for the personal data described in this policy.</p>
+        <p>We built this app to help you spend less time on your phone. We do not sell your data, we do not run advertising, and we do not use third-party analytics or tracking SDKs.</p>
+        <p>Questions, requests or complaints: <a href="mailto:ilya@incognitolabs.org">ilya@incognitolabs.org</a></p>
 
-        <h2>Who we are</h2>
-        <p>Winter Arc 26 is an iOS discipline app. Contact us at
-        <a href="mailto:privacy@winterarc26.app">privacy@winterarc26.app</a> with any
-        privacy question or request.</p>
-
-        <h2>What we collect</h2>
+        <h2>1. What we collect</h2>
+        <p><strong>Information you give us</strong></p>
         <ul>
-          <li><strong>Account &amp; identity.</strong> When you sign in with Apple we receive a
-          user identifier and, if you choose to share it, your name and a relay email
-          address. You may also choose a public <em>@username</em> and display name.</li>
-          <li><strong>Your activity.</strong> The tasks you configure, completions, streaks,
-          ELO, rank, reward minutes, and related progress, so the app can keep score and
-          sync across sessions.</li>
-          <li><strong>Task proof photos.</strong> When a task requires photo verification, the
-          photo you capture is transmitted for automated checking (see “Photo
-          verification” below).</li>
-          <li><strong>Community content.</strong> Posts, replies and reactions you create are
-          stored and shown to other users under your chosen username.</li>
-          <li><strong>Purchases.</strong> Subscription status is managed through Apple and our
-          billing provider (RevenueCat). We do not receive or store your full payment card
-          details.</li>
-          <li><strong>Device &amp; diagnostic data.</strong> Basic technical information needed to
-          operate the service and diagnose problems.</li>
+          <li><strong>Username</strong> — a public handle you choose. Visible to all users on the community feed and leaderboard.</li>
+          <li><strong>Age</strong> — a number you enter during setup, used to personalise your results screen. We do not store your date of birth.</li>
+          <li><strong>Sign in with Apple identifier</strong> — and an email address if you choose to share it. If you use Apple's Hide My Email, we only ever see the relay address.</li>
+          <li><strong>Your tasks and daily progress</strong> — the habits you configure, which you complete each day, and your alarm times.</li>
+          <li><strong>Your commitment pledge</strong> — the sentence you type during setup.</li>
+          <li><strong>Setup answers</strong> — such as your estimated distraction hours and the habit you want to quit.</li>
+          <li><strong>Community content</strong> — posts, replies and reactions you choose to publish.</li>
+          <li><strong>Motivation media</strong> — any images or video you upload to the Jarvis feature.</li>
+        </ul>
+        <p><strong>Information created by using the app</strong></p>
+        <ul>
+          <li>ELO score, rank, streak, and daily completion history.</li>
+          <li>Focus session records (start time, duration, outcome).</li>
+          <li>Subscription status.</li>
+        </ul>
+        <p><strong>Information collected automatically</strong></p>
+        <ul>
+          <li>A Firebase anonymous user ID, created on first launch before you sign in.</li>
+          <li>A push notification token, if you allow notifications.</li>
+          <li>Basic technical information needed to deliver the service, such as app version and device type.</li>
+        </ul>
+        <p><strong>What we do not collect</strong></p>
+        <ul>
+          <li>We do not collect your location.</li>
+          <li>We do not collect your contacts, calendar, or photo library. The app cannot access your camera roll.</li>
+          <li>We do not use advertising identifiers (IDFA) and do not track you across other apps or websites.</li>
+          <li>We do not use analytics or crash-reporting SDKs.</li>
         </ul>
 
-        <h2>Photo verification — important</h2>
-        <p>Photos captured for task proof are <strong>sent off your device</strong> to our
-        cloud service and a third-party AI vision provider, which judges the photo against
-        the task's criteria and returns a pass/fail result. Proof photos are used only for
-        that check and are <strong>not stored</strong> by us after verification, not posted to
-        the community, and not used to build a profile of you. Because the photo leaves
-        your device for processing, do not capture anything in the frame you would not want
-        transmitted for automated review.</p>
+        <h2>2. Task verification photos — read this section</h2>
+        <p>When you complete a photo-verified task, the app opens the camera and you take a live photo.</p>
+        <p>That photo is uploaded to our server and sent to OpenAI to be analysed. It is checked against the requirements for that specific task, a pass or fail result is returned, and the image is then discarded. We do not store it, we do not save it to your photo library, and it is not attached to your account or shown to anyone.</p>
+        <p>We are being explicit because the analysis cannot happen on your device alone. If you would rather no photo of yours ever leaves your phone, choose check-off tasks instead of photo-verified ones — they work without the camera.</p>
+        <p>OpenAI processes this data as our service provider under its API terms, which state that API data is not used to train its models.</p>
 
-        <h2>Screen Time &amp; app blocking</h2>
-        <p>The lock feature uses Apple's Screen Time / Family Controls framework. The
-        selection of apps you choose to block is handled on your device by Apple's
-        framework. We do not receive a list of the specific apps you use or block.</p>
+        <h2>3. Blocked apps and Screen Time</h2>
+        <p>Winter Arc 26 uses Apple's Screen Time (Family Controls) framework to block apps during a focus session.</p>
+        <p>Your app selections never leave your device. Apple provides them to us as opaque tokens that cannot be read or reversed. We cannot see which apps you chose, we do not transmit that selection to our servers, and it is never stored in our database. We use this data only to power the blocking feature you asked for, and for nothing else.</p>
 
-        <h2>How we use your data</h2>
+        <h2>4. The AI coach</h2>
+        <p>If you try to open a blocked app, the app may present a short conversation with an AI coach.</p>
+        <p>Your messages, along with limited context about your current progress (such as how many tasks you have left today and your streak length), are sent to OpenAI to generate a response. Conversations are not stored on our servers after the session ends.</p>
+        <p>Please don't share sensitive personal information — financial details, passwords, health information — with the coach.</p>
+
+        <h2>5. What is public</h2>
+        <p>The following are visible to other users of the app:</p>
         <ul>
-          <li>To run the core features: tasks, verification, scoring, the ladder, lock
-          sessions, rewards and the community.</li>
-          <li>To keep the community safe. Posts and replies are screened by an automated
-          moderation service and a profanity filter; content that violates our rules may be
-          removed automatically.</li>
-          <li>To manage your subscription and provide support.</li>
-          <li>To maintain, secure and improve the service.</li>
+          <li>Your username, ELO score, rank, streak and equipped cosmetics.</li>
+          <li>Your posts, replies and reactions on the community feed.</li>
+          <li>Your public profile, including your activity heatmap.</li>
+        </ul>
+        <p>Your task photos, pledge, age, email address and blocked-app selections are never public.</p>
+        <p>Community content is automatically screened for harmful and explicit material before it appears. Content that breaks our rules may be removed and may affect your score.</p>
+
+        <h2>6. Why we're allowed to process it (legal basis)</h2>
+        <p>Under UK and EU data protection law we rely on:</p>
+        <ul>
+          <li><strong>Contract</strong> — to give you an account, run your tasks and streaks, and manage your subscription.</li>
+          <li><strong>Legitimate interests</strong> — to keep the community safe, prevent abuse, and keep the app working.</li>
+          <li><strong>Consent</strong> — for camera access, notifications and Screen Time, each of which you grant through an iOS prompt and can withdraw in Settings at any time.</li>
+          <li><strong>Legal obligation</strong> — where we must keep records or respond to lawful requests.</li>
         </ul>
 
-        <h2>Who we share it with</h2>
-        <p>We share data only with service providers that help us run the app, under
-        agreements that limit their use of it:</p>
+        <h2>7. Who we share it with</h2>
+        <p>We do not sell or rent your personal data. We share it only with the following providers, each acting on our instructions:</p>
         <ul>
-          <li><strong>Apple</strong> — sign-in, Screen Time, and subscription billing.</li>
-          <li><strong>Google Firebase</strong> — authentication, database and backend hosting.</li>
-          <li><strong>RevenueCat</strong> — subscription management.</li>
-          <li><strong>An AI provider</strong> — photo-proof verification, community moderation and
-          the in-app coach.</li>
+          <li><strong>Google Firebase</strong> — sign-in, database, file storage, push notifications.</li>
+          <li><strong>OpenAI</strong> — task photo verification, AI coach responses, content moderation.</li>
+          <li><strong>RevenueCat</strong> — managing your subscription.</li>
+          <li><strong>Apple</strong> — Sign in with Apple, App Store payments, notifications.</li>
         </ul>
-        <p>We do not sell your personal data.</p>
+        <p>We never see your card details. Payments are handled entirely by Apple. We may also disclose data where required by law, or to protect the rights and safety of our users.</p>
 
-        <h2>Retention</h2>
-        <p>We keep account and activity data for as long as your account is active. Proof
-        photos are not retained after verification. Community content remains visible until
-        you or we remove it. When you delete your account we delete or anonymise data we no
-        longer need, subject to legal obligations.</p>
+        <h2>8. Data leaving the UK</h2>
+        <p>Firebase and OpenAI process data on servers in the United States. Where personal data is transferred outside the UK or EEA, we rely on the UK International Data Transfer Addendum and the European Commission's Standard Contractual Clauses to protect it.</p>
 
-        <h2>Your choices &amp; rights</h2>
-        <p>Depending on where you live, you may have the right to access, correct, export or
-        delete your personal data, and to object to certain processing. To make a request,
-        email <a href="mailto:privacy@winterarc26.app">privacy@winterarc26.app</a>. You can
-        stop all collection by deleting the app and your account.</p>
+        <h2>9. How long we keep it</h2>
+        <ul>
+          <li><strong>Account data</strong> — for as long as your account exists.</li>
+          <li><strong>Task photos</strong> — not retained. Analysed and discarded.</li>
+          <li><strong>Coach conversations</strong> — not retained after the session.</li>
+          <li><strong>Community posts</strong> — until you delete them or your account.</li>
+        </ul>
+        <p>When you delete your account we delete your profile, history and community content, except where we must keep something to meet a legal obligation.</p>
 
-        <h2>Children</h2>
-        <p>Winter Arc 26 is intended for adults and is not directed to children under
-        [MINIMUM AGE]. We do not knowingly collect data from children under that age.</p>
+        <h2>10. Your rights</h2>
+        <p>You have the right to access your data, correct it, delete it, restrict or object to how we use it, receive a copy in a portable format, and withdraw consent at any time.</p>
+        <p>You can delete your account and all associated data yourself: Profile → Settings → Delete my account.</p>
+        <p>For anything else, email <a href="mailto:ilya@incognitolabs.org">ilya@incognitolabs.org</a>. We will respond within one month.</p>
+        <p>If you're unhappy with our response, you can complain to the UK Information Commissioner's Office at <a href="https://ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a>, or to your local supervisory authority if you're in the EEA.</p>
 
-        <h2>Changes</h2>
-        <p>We may update this policy. Material changes will be reflected by the “last
-        updated” date above and, where appropriate, notified in the app.</p>
+        <h2>11. Children</h2>
+        <p>Winter Arc 26 is not intended for children under 13, and you must be at least 13 to create an account. We do not knowingly collect data from children under 13. If you believe a child has given us personal data, email us and we will delete it.</p>
 
-        <h2>Contact</h2>
-        <p>[YOUR COMPANY], [ADDRESS] —
-        <a href="mailto:privacy@winterarc26.app">privacy@winterarc26.app</a>.</p>
+        <h2>12. Security</h2>
+        <p>We use encryption in transit, Apple's Sign in with Apple for authentication, and database rules that prevent one user reading another's private data. No system is completely secure, but we work to keep your data protected and will notify you and the relevant authority if a breach affects your rights.</p>
+
+        <h2>13. Changes</h2>
+        <p>We may update this policy. The date at the top shows when it last changed, and we'll tell you in the app if a change is significant.</p>
 
         <p style="margin-top:40px;"><a href="index.html">← Back to home</a></p>
       </div>
@@ -132,12 +146,12 @@
   <footer class="footer">
     <div class="wrap">
       <div class="footer__bottom">
-        <span>© <span id="year">2026</span> Winter Arc 26. All rights reserved.</span>
-        <span><a href="terms.html">Terms of Service</a> · <a href="privacy.html">Privacy</a></span>
+        <span>© <span id="year">2026</span> incognito labs limited. All rights reserved.</span>
+        <span><a href="terms.html">Terms</a> · <a href="privacy.html">Privacy</a> · <a href="contact.html">Contact</a></span>
       </div>
     </div>
   </footer>
 
-  <script src="assets/js/main.js" defer></script>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 </body>
 </html>
