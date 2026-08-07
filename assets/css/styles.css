@@ -544,8 +544,8 @@ p { margin: 0; }
   gap: 24px; align-items: center; margin-top: 56px;
 }
 .bento__col { display: flex; flex-direction: column; gap: 24px; }
-.bento__phone { justify-self: center; }
-.bento .phone { width: min(280px, 100%); }
+.bento__phone { justify-self: center; width: min(280px, 100%); }
+.bento .phone { width: 100%; }
 .bento-card {
   background: linear-gradient(180deg, var(--card) 0%, var(--card-deep) 100%);
   border: 1px solid var(--hairline-soft); border-radius: 22px; padding: 26px;
