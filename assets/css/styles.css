@@ -199,9 +199,9 @@ p { margin: 0; }
 
 /* Typography roles from the design system's scale, scaled up for desktop */
 .h-hero {
-  font-size: clamp(36px, 8vw, 60px);
+  font-size: clamp(48px, 12vw, 88px);
   font-weight: 800;
-  line-height: 1.02;
+  line-height: 1.0;
 }
 .h-page  { font-size: clamp(30px, 4.4vw, 40px); }
 .h-section { font-size: clamp(24px, 3.2vw, 30px); }
