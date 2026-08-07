@@ -69,17 +69,9 @@ html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body {
   margin: 0;
   min-height: 100vh;
+  min-height: 100dvh; /* iOS Safari: account for the dynamic toolbar */
   position: relative;
-  /* Deep-blue night sky with a drifting nebula/cloud wash (the sky itself) */
-  background-color: #05070f;
-  background-image:
-    radial-gradient(62% 46% at 56% 26%, rgba(74,116,196,0.32) 0%, transparent 62%),
-    radial-gradient(52% 40% at 28% 46%, rgba(48,84,168,0.24) 0%, transparent 60%),
-    radial-gradient(46% 34% at 78% 62%, rgba(90,130,210,0.16) 0%, transparent 62%),
-    linear-gradient(180deg, #16295c 0%, #0d1c42 40%, #060c22 74%, #04060f 100%);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  animation: sky-clouds 90s ease-in-out infinite alternate;
+  background-color: #05070f; /* base — the sky itself is drawn on ::before */
   color: var(--text-body);
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
                "Inter", "Helvetica Neue", Arial, sans-serif;
@@ -90,18 +82,26 @@ body {
   overflow-x: hidden;
 }
 
-/* Starfield (twinkling) — a fixed layer behind the content */
+/* Night sky (gradient + nebula + starfield) as a FIXED pseudo-layer.
+   iOS Safari ignores `background-attachment: fixed`, so we pin a fixed
+   element instead and drift it with a GPU transform (smooth on iPhone). */
 body::before {
-  content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  content: ""; position: fixed; inset: -2%; z-index: 0; pointer-events: none;
+  background-color: #05070f;
   background-image:
     radial-gradient(1.4px 1.4px at 25px 40px, rgba(255,255,255,0.95), transparent),
     radial-gradient(1.1px 1.1px at 100px 120px, rgba(255,255,255,0.7), transparent),
     radial-gradient(1px 1px at 165px 60px, rgba(205,230,255,0.85), transparent),
     radial-gradient(1.3px 1.3px at 60px 180px, rgba(255,255,255,0.8), transparent),
     radial-gradient(1px 1px at 205px 205px, rgba(255,255,255,0.6), transparent),
-    radial-gradient(1.2px 1.2px at 140px 20px, rgba(255,255,255,0.75), transparent);
-  background-size: 240px 240px;
-  animation: sky-twinkle 5.5s ease-in-out infinite alternate;
+    radial-gradient(62% 46% at 56% 26%, rgba(74,116,196,0.32) 0%, transparent 62%),
+    radial-gradient(52% 40% at 28% 46%, rgba(48,84,168,0.24) 0%, transparent 60%),
+    radial-gradient(46% 34% at 78% 62%, rgba(90,130,210,0.16) 0%, transparent 62%),
+    linear-gradient(180deg, #16295c 0%, #0d1c42 40%, #060c22 74%, #04060f 100%);
+  background-repeat: repeat, repeat, repeat, repeat, repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+  background-size: 240px 240px, 240px 240px, 240px 240px, 240px 240px, 240px 240px, auto, auto, auto, 100% 100%;
+  will-change: transform;
+  animation: sky-drift 34s ease-in-out infinite alternate;
 }
 
 /* Snowfall — a fixed layer of dots falling at parallax speeds */
@@ -120,17 +120,16 @@ body::after {
 /* Keep page content above the sky layers */
 .nav, main, .footer { position: relative; z-index: 1; }
 
-@keyframes sky-clouds {
-  from { background-position: 0% 0%, 0% 0%, 0% 0%, 0 0; }
-  to   { background-position: 8% 4%, -6% 3%, 5% -3%, 0 0; }
+@keyframes sky-drift {
+  from { transform: translate3d(-1.2%, -0.8%, 0); }
+  to   { transform: translate3d(1.2%, 0.8%, 0); }
 }
-@keyframes sky-twinkle { from { opacity: 0.55; } to { opacity: 1; } }
 @keyframes sky-snow {
   to { background-position: 0 320px, 0 420px, 0 260px, 0 380px, 0 500px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  body, body::before, body::after { animation: none; }
+  body::before, body::after { animation: none; }
 }
 
 img, svg { max-width: 100%; display: block; }
@@ -294,6 +293,7 @@ p { margin: 0; }
   position: fixed;
   inset: 0 0 auto 0;
   z-index: 100;
+  padding-top: env(safe-area-inset-top); /* clear the iPhone notch */
   transition: background var(--dur) var(--ease), backdrop-filter var(--dur) var(--ease),
               border-color var(--dur) var(--ease);
   border-bottom: 1px solid transparent;
@@ -360,7 +360,7 @@ p { margin: 0; }
 }
 
 /* Centred single-column hero */
-.hero--center { text-align: center; padding-top: 150px; padding-bottom: 110px; }
+.hero--center { text-align: center; padding-top: calc(130px + env(safe-area-inset-top)); padding-bottom: 110px; }
 .hero__copy--center { max-width: 800px; margin: 0 auto; }
 .hero--center .lede { margin-left: auto; margin-right: auto; }
 .hero--center .hero__cta { justify-content: center; }
@@ -936,7 +936,8 @@ p { margin: 0; }
    ------------------------------------------------------------------------- */
 .mobile-cta {
   position: fixed;
-  left: 12px; right: 12px; bottom: 12px;
+  left: 12px; right: 12px;
+  bottom: calc(12px + env(safe-area-inset-bottom)); /* clear the home indicator */
   z-index: 90;
   display: none;
   background: rgba(10,18,41,0.86);
@@ -958,7 +959,7 @@ p { margin: 0; }
 
 @media (max-width: 720px) {
   .mobile-cta { display: flex; }
-  body { padding-bottom: 84px; }
+  body { padding-bottom: calc(84px + env(safe-area-inset-bottom)); }
 }
 
 /* ---------------------------------------------------------------------------
