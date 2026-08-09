@@ -410,7 +410,35 @@ p { margin: 0; }
   color: var(--glow); font-size: 16px; font-weight: 500;
 }
 .hero__learn:hover { color: var(--frost); }
-.hero__note { margin-top: 44px; color: rgba(255,255,255,0.38); font-size: 14px; }
+.hero__note { color: rgba(255,255,255,0.55); font-size: 14px; margin: 0; }
+.hero__note strong { color: #fff; font-weight: 700; }
+
+/* Social proof — overlapping avatar stack */
+.hero__social {
+  display: flex; align-items: center; justify-content: center;
+  gap: 14px; margin-top: 44px; flex-wrap: wrap;
+}
+.avatar-stack { display: inline-flex; }
+.avatar-stack .avatar {
+  width: 36px; height: 36px; border-radius: 50%;
+  margin-left: -12px;
+  border: 2.5px solid var(--bg-top);
+  background: linear-gradient(150deg, var(--g1), var(--g2));
+  box-shadow: 0 3px 8px rgba(0,0,0,0.4);
+  display: grid; place-items: end center;
+  overflow: hidden;
+}
+.avatar-stack .avatar:first-child { margin-left: 0; }
+.avatar-stack .avatar svg { width: 28px; height: 28px; fill: rgba(255,255,255,0.92); }
+.avatar-stack .avatar--count {
+  place-items: center;
+  background: var(--card-raised);
+  color: var(--frost); font-size: 13px; font-weight: 700;
+}
+@media (max-width: 480px) {
+  .hero__social { gap: 10px; }
+  .avatar-stack .avatar { width: 32px; height: 32px; }
+}
 .hero--center .hero__glow { right: 50%; transform: translateX(50%); top: 20px; opacity: 0.7; }
 
 .hero__proof {
