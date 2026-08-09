@@ -449,7 +449,7 @@ HANDLERS.reward = function (step) {
 /* ---- notifications priming ---- */
 HANDLERS.notify = function (step) {
   const rows = [
-    ["Winter Arc", "Time to lock in. Your first task is waiting, don't quit now."],
+    ["ARC26", "Time to lock in. Your first task is waiting, don't quit now."],
     ["Task alarms", "No snoozing on your transformation."],
     ["Task reminders", "Quiet reminders so nothing slips."],
     ["Daily motivation", "A push when you need it most."]
@@ -570,7 +570,7 @@ HANDLERS.social = function (step) {
   const avatars = ["J", "M", "D", "R", "A"].map(x => `<span>${x}</span>`).join("");
   stepEl.innerHTML = `<div class="info-center">
     <div class="avatars">${avatars}</div>
-    <h1 class="q-head">Join <span class="accent">437,299</span> men on the winter arc</h1>
+    <h1 class="q-head">Join <span class="accent">437,299</span> men on the arc</h1>
     <div class="commit-quote" style="font-size:16px;font-style:italic;margin-top:8px">“${esc(commit)}”</div>
     <p class="q-sub" style="margin-top:12px">You made the promise. Now put in the work.</p>
   </div>
