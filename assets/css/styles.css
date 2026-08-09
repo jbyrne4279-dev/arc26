@@ -262,16 +262,17 @@ p { margin: 0; }
 .btn--appstore {
   background: #fff;
   color: #0A1229;
-  padding: 0 24px;
-  height: 60px;
+  gap: 13px;
+  padding: 0 36px;
+  height: 74px;
   border-radius: var(--r-input);
   box-shadow: 0 8px 30px rgba(0,0,0,0.45);
 }
 .btn--appstore:hover { color: #0A1229; }
-.btn--appstore .apple { width: 26px; height: 26px; fill: #0A1229; flex: none; }
+.btn--appstore .apple { width: 32px; height: 32px; fill: #0A1229; flex: none; }
 .btn--appstore .store-label { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.1; }
-.btn--appstore .store-label .sm { font-size: 11px; font-weight: 500; opacity: 0.7; letter-spacing: 0.2px; }
-.btn--appstore .store-label .lg { font-size: 19px; font-weight: 600; letter-spacing: -0.01em; }
+.btn--appstore .store-label .sm { font-size: 13px; font-weight: 500; opacity: 0.7; letter-spacing: 0.2px; }
+.btn--appstore .store-label .lg { font-size: 23px; font-weight: 600; letter-spacing: -0.01em; }
 
 .btn--ghost {
   background: transparent;
