@@ -170,13 +170,13 @@ p { margin: 0; }
 
 .section {
   position: relative;
-  padding: 96px 0;
+  padding: 60px 0;
   scroll-margin-top: 84px; /* anchor links clear the fixed nav */
 }
-.section--tight { padding: 64px 0; }
+.section--tight { padding: 40px 0; }
 
 @media (max-width: 720px) {
-  .section { padding: 68px 0; }
+  .section { padding: 46px 0; }
 }
 
 .center { text-align: center; }
