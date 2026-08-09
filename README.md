@@ -1,6 +1,6 @@
-# Winter Arc 26 — Funnel Site
+# ARC26 — Funnel Site
 
-A conversion-optimised landing site for the Winter Arc 26 iOS app. Built to take
+A conversion-optimised landing site for the ARC26 iOS app. Built to take
 cold traffic from short-form social (Instagram / TikTok), sell the app's core
 mechanics, and drive App Store downloads.
 

@@ -1,5 +1,5 @@
 /* =============================================================================
-   Winter Arc 26, Quiz / onboarding funnel engine
+   ARC26, Quiz / onboarding funnel engine
    Config-driven: STEPS below is the whole flow. A generic renderer handles each
    step `type`. State persists to localStorage so the paywall/account can be
    pre-filled with the user's plan.
@@ -28,7 +28,7 @@ const CONFIG = {
    Content, the entire flow. Edit copy here without touching the renderer.
    ------------------------------------------------------------------------- */
 const STEPS = [
-  { id: "area", type: "tiles", eyebrow: "Winter Arc 26",
+  { id: "area", type: "tiles", eyebrow: "ARC26",
     headline: "Which area needs the most attention?", sub: "Select all that apply.",
     tiles: [
       { name: "Health",  emoji: "❤️", color: "#FF736B" },
@@ -353,7 +353,7 @@ HANDLERS.info = function (step) {
         <polyline points="4,110 80,96 150,70 220,40 296,12" fill="none" stroke="#59E08C" stroke-width="3" stroke-linecap="round"/>
         <polyline points="4,86 80,92 150,84 220,90 296,86" fill="none" stroke="#FF736B" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 6"/>
       </svg>
-      <div class="legend"><span><i style="background:#59E08C"></i>With Arc26</span><span><i style="background:#FF736B"></i>Without</span></div>
+      <div class="legend"><span><i style="background:#59E08C"></i>With ARC26</span><span><i style="background:#FF736B"></i>Without</span></div>
       <div class="axis"><span>Day 1</span><span>Day 60</span></div>
       <div class="stat-ring"><div class="ring">${ringSVG(72, "#59E08C", 64)}</div>
         <p>The average member sees a <b>72% improvement</b> in discipline after joining.</p></div>
@@ -666,7 +666,7 @@ HANDLERS.download = function (step) {
   const plan = state.plan === "monthly" ? "Monthly · $13.99/mo" : "Yearly · $5.00/mo";
   progressFill.style.width = "100%";
   stepEl.innerHTML = `<div class="info-center"><div style="font-size:48px">🏔️</div>${head(step)}
-    <p class="q-sub">Download Arc26 and your plan is waiting on Day 1.</p>
+    <p class="q-sub">Download ARC26 and your plan is waiting on Day 1.</p>
     <div class="store-badges">
       <a class="store-badge" id="dl" href="${esc(CONFIG.APP_STORE_URL)}" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24"><path d="M17.05 12.04c-.03-2.6 2.12-3.85 2.22-3.91-1.21-1.77-3.09-2.01-3.76-2.04-1.6-.16-3.12.94-3.93.94-.81 0-2.06-.92-3.39-.9-1.74.03-3.35 1.01-4.25 2.57-1.81 3.14-.46 7.79 1.3 10.34.86 1.25 1.88 2.65 3.22 2.6 1.29-.05 1.78-.83 3.34-.83 1.56 0 2 .83 3.37.81 1.39-.03 2.27-1.27 3.12-2.53.98-1.45 1.38-2.85 1.4-2.92-.03-.01-2.69-1.03-2.72-4.09zM14.6 4.5c.71-.86 1.19-2.06 1.06-3.25-1.02.04-2.26.68-3 1.54-.66.76-1.24 1.98-1.08 3.14 1.14.09 2.31-.58 3.02-1.43z"/></svg>
